@@ -55,11 +55,19 @@ const initAnimation = function() {
 
   const featuresContainer = view.querySelector("[data-features=container]");
   const features = view.querySelector("[data-features=content]");
+  const bullets = view.querySelectorAll("[data-features=bullet]");
+  const bulletList = view.querySelector("[data-features=bulletList]");
 
 
   // variables
   const dur = 0.5;
-  const pos = '0 0 2512 2055';
+  const orgPos = '0 0 2512 2055';
+  const logoPos = '890 850 800 800';
+  const arenaPos = '400 180 1800 1800';
+  const fightPos = '550 370 1200 1200';
+  const clockPos = '700 370 1100 1100';
+  const followPos = '550 370 1300 1300';
+  const heroPos = '500 780 1500 1500';
 
   // Timelines
   // Main
@@ -74,7 +82,7 @@ const initAnimation = function() {
   const tlTagline = new TimelineMax({ paused: true });
   const tlCage = new TimelineMax({ paused: true });
   const tlCountdown = new TimelineMax({ paused: true });
-  const tlEmph = new TimelineMax({ paused: true}); // change this to function
+  const tlEndOfRound = new TimelineMax({ paused: true});
   const tlFight = new TimelineMax({ repeat: 15 });
   
   const tlLeft = new TimelineMax({ paused: true });
@@ -88,16 +96,21 @@ const initAnimation = function() {
   
   // Main
   tl
-    //.add(tlCam)
-    //.add(tlTitle.play(), 0)
-    //.add(tlArena.play(), 5)
-    .add(tlHero.play(), 0)
+    .add(tlCam.play(), 0)
+    .add(tlTitle.play(), 0)
+    .add(tlArena.play(), 4)
+    .add(tlHero.play(), 15)
     ;
 
 
   // Sub-Level 1
-    tlCam
-
+  tlCam
+    .set(view, { attr: {viewBox: logoPos } })
+    .to(view, 3, { attr: {viewBox: arenaPos }, ease: Power2.easeInOut }, 4)
+    .to(view, 3.5, { attr: {viewBox: fightPos }, ease: Power1.easeInOut }, 7)
+    .to(view, 1, { attr: {viewBox: clockPos }, ease: Power4.easeInOut }, 10.5)
+    .to(view, 3, { attr: {viewBox: followPos }, ease: Power1.easeInOut }, 12)
+    .to(view, 5, { attr: {viewBox: heroPos }, ease: Power4.easeInOut }, 14)
   ;
 
   tlTitle
@@ -157,10 +170,10 @@ const initAnimation = function() {
     .to(timer, 1, { y: 0, ease: Power4.easeInOut }, 4.5)
     .to(zero, 0.5, { fill: "#D5756A"}, 4.7)
     .to(endofround, 0.75, { autoAlpha: 1, ease: Power4.easeInOut }, 4.8)
-    .add(tlEmph, 5)
+    .add(tlEndOfRound.play(), 5)
   ;
 
-  tlEmph
+  tlEndOfRound
     .set(endofroundEmph[0], { drawSVG: 0, autoAlpha: 1 }, 0)
     .set(endofroundEmph[1], { drawSVG: "100% 100%", autoAlpha: 1 }, 0)
 
@@ -180,9 +193,9 @@ const initAnimation = function() {
   
   tlLeft
     .set([hero, leftArm], { autoAlpha: 1 })
-    .set(hero, { y: -500 })
-    .fromTo(leftArm, 0.5, { x: -400, y: 500, rotation: 30, transformOrigin: "left bottom"}, { x: 0, y: 0, rotation: 0, ease: Power3.easeOut  }, 0)
-    
+    //.set(hero, { y: -500 })
+    .to(backdrop, 1, { autoAlpha: 0.25 }, 0)
+    .fromTo(leftArm, 0.5, { x: -400, y: 500, rotation: 30, transformOrigin: "left bottom"}, { x: 0, y: 0, rotation: 0, ease: Power3.easeOut  }, 0) 
   ;
 
   tlRight
@@ -202,8 +215,8 @@ const initAnimation = function() {
     
     .to(rightHand, 0.6, { bezier: [
       { rotation: 0, x: 150, y: 450 },
-      { rotation: 3, x: 75, y: 300 },
-      { rotation: 0, x: 0, y: 50}
+      { rotation: 3, x: 55, y: 300 },
+      { rotation: 0, x: 10, y: 20}
       ], transformOrigin: "right bottom", ease: SlowMo.ease.config(0.1, 0.5, true) }, "tapNote")
 
     .to(leftArm, 0.3, { scale: 0.997, transformOrigin: "left bottom", ease: SlowMo.ease.config(0.1, 0.5, true)}, "tapNote =+0.20")
@@ -231,11 +244,8 @@ const initAnimation = function() {
       { rotation: 0, x: 60, y: 100}
       ], transformOrigin: "right bottom", ease: Power1.easeNone }, "tapScore =+0.6")
 
-    .to(rightHand, 2, { rotation: 0, y: 450, x: 150, ease: Power3.easeOut})
-
-    
-      
-    ;
+    .to(rightHand, 5, { rotation: 0, y: 450, x: 150, ease: Power3.easeOut})
+  ;
 
   tlUI
     .add(tlNotification.play(), 0)
@@ -310,8 +320,13 @@ const initAnimation = function() {
 
   tlFeatures
     .set(features, { x: 240 })
-    .set(featuresContainer, { autoAlpha: 1 })
+    .set(bullets[0], { y: 1200 })
+    .set(bullets[1], { y: 1250 })
+    .set(bullets[2], { y: 1300 })
+    .set([featuresContainer, bulletList], { autoAlpha: 1 })
+
     .to(features, 0.5, { x: 0 })
+    .staggerFrom(bullets, 0.5, { autoAlpha: 0, x: 3000, ease: Power4.easeOut }, 0.7, 1.5)
   ;
 
   tl.restart(); 

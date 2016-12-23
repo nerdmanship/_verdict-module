@@ -54,10 +54,18 @@ var initAnimation = function initAnimation() {
 
   var featuresContainer = view.querySelector("[data-features=container]");
   var features = view.querySelector("[data-features=content]");
+  var bullets = view.querySelectorAll("[data-features=bullet]");
+  var bulletList = view.querySelector("[data-features=bulletList]");
 
   // variables
   var dur = 0.5;
-  var pos = '0 0 2512 2055';
+  var orgPos = '0 0 2512 2055';
+  var logoPos = '890 850 800 800';
+  var arenaPos = '400 180 1800 1800';
+  var fightPos = '550 370 1200 1200';
+  var clockPos = '700 370 1100 1100';
+  var followPos = '550 370 1300 1300';
+  var heroPos = '500 780 1500 1500';
 
   // Timelines
   // Main
@@ -72,7 +80,7 @@ var initAnimation = function initAnimation() {
   var tlTagline = new TimelineMax({ paused: true });
   var tlCage = new TimelineMax({ paused: true });
   var tlCountdown = new TimelineMax({ paused: true });
-  var tlEmph = new TimelineMax({ paused: true }); // change this to function
+  var tlEndOfRound = new TimelineMax({ paused: true });
   var tlFight = new TimelineMax({ repeat: 15 });
 
   var tlLeft = new TimelineMax({ paused: true });
@@ -85,14 +93,10 @@ var initAnimation = function initAnimation() {
   var tlFeatures = new TimelineMax({ paused: true });
 
   // Main
-  tl
-  //.add(tlCam)
-  //.add(tlTitle.play(), 0)
-  //.add(tlArena.play(), 5)
-  .add(tlHero.play(), 0);
+  tl.add(tlCam.play(), 0).add(tlTitle.play(), 0).add(tlArena.play(), 4).add(tlHero.play(), 15);
 
   // Sub-Level 1
-  tlCam;
+  tlCam.set(view, { attr: { viewBox: logoPos } }).to(view, 3, { attr: { viewBox: arenaPos }, ease: Power2.easeInOut }, 4).to(view, 3.5, { attr: { viewBox: fightPos }, ease: Power1.easeInOut }, 7).to(view, 1, { attr: { viewBox: clockPos }, ease: Power4.easeInOut }, 10.5).to(view, 3, { attr: { viewBox: followPos }, ease: Power1.easeInOut }, 12).to(view, 5, { attr: { viewBox: heroPos }, ease: Power4.easeInOut }, 14);
 
   tlTitle.add("title").add(tlLogo.play(), "title").add(tlTagline.play(), "title =+1.5");
 
@@ -108,13 +112,15 @@ var initAnimation = function initAnimation() {
 
   tlCage.add("cage").to(logoGradient, 0.5, { autoAlpha: 1, ease: Linear.easeNone }, "cage").to([cage, logoShadow], 0.5, { autoAlpha: 1, ease: Linear.easeNone }, "cage =+0.5");
 
-  tlCountdown.set(timer, { y: -50 }).from(four, 0.99, { scale: 0.9, transformOrigin: "center", ease: Power4.easeInOut }).to(four, 0.01, { autoAlpha: 0 }, 1).to(three, 0.01, { autoAlpha: 1 }, 1).fromTo(three, 0.99, { scale: 0.9, transformOrigin: "center", ease: Power4.easeInOut }, { scale: 1 }, 1).to(three, 0.01, { autoAlpha: 0 }, 2).to(two, 0.01, { autoAlpha: 1 }, 2).fromTo(two, 0.99, { scale: 0.9, transformOrigin: "center", ease: Power4.easeInOut }, { scale: 1 }, 2).to(two, 0.01, { autoAlpha: 0 }, 3).to(one, 0.01, { autoAlpha: 1 }, 3).fromTo(one, 0.99, { scale: 0.9, transformOrigin: "center", ease: Power4.easeInOut }, { scale: 1 }, 3).to(one, 0.01, { autoAlpha: 0 }, 4).to(zero, 0.01, { autoAlpha: 1 }, 4).fromTo(zero, 0.99, { scale: 0.9, transformOrigin: "center", ease: Power4.easeInOut }, { scale: 1 }, 4).to(timer, 1, { y: 0, ease: Power4.easeInOut }, 4.5).to(zero, 0.5, { fill: "#D5756A" }, 4.7).to(endofround, 0.75, { autoAlpha: 1, ease: Power4.easeInOut }, 4.8).add(tlEmph, 5);
+  tlCountdown.set(timer, { y: -50 }).from(four, 0.99, { scale: 0.9, transformOrigin: "center", ease: Power4.easeInOut }).to(four, 0.01, { autoAlpha: 0 }, 1).to(three, 0.01, { autoAlpha: 1 }, 1).fromTo(three, 0.99, { scale: 0.9, transformOrigin: "center", ease: Power4.easeInOut }, { scale: 1 }, 1).to(three, 0.01, { autoAlpha: 0 }, 2).to(two, 0.01, { autoAlpha: 1 }, 2).fromTo(two, 0.99, { scale: 0.9, transformOrigin: "center", ease: Power4.easeInOut }, { scale: 1 }, 2).to(two, 0.01, { autoAlpha: 0 }, 3).to(one, 0.01, { autoAlpha: 1 }, 3).fromTo(one, 0.99, { scale: 0.9, transformOrigin: "center", ease: Power4.easeInOut }, { scale: 1 }, 3).to(one, 0.01, { autoAlpha: 0 }, 4).to(zero, 0.01, { autoAlpha: 1 }, 4).fromTo(zero, 0.99, { scale: 0.9, transformOrigin: "center", ease: Power4.easeInOut }, { scale: 1 }, 4).to(timer, 1, { y: 0, ease: Power4.easeInOut }, 4.5).to(zero, 0.5, { fill: "#D5756A" }, 4.7).to(endofround, 0.75, { autoAlpha: 1, ease: Power4.easeInOut }, 4.8).add(tlEndOfRound.play(), 5);
 
-  tlEmph.set(endofroundEmph[0], { drawSVG: 0, autoAlpha: 1 }, 0).set(endofroundEmph[1], { drawSVG: "100% 100%", autoAlpha: 1 }, 0).to(endofroundEmph[0], 0.4, { drawSVG: "20% 50%" }, 0.1).to(endofroundEmph[1], 0.4, { drawSVG: "50% 80%" }, 0.1).to(endofroundEmph[0], 0.5, { drawSVG: "100% 100%" }, 0.5).to(endofroundEmph[1], 0.5, { drawSVG: 0 }, 0.5).set(endofroundEmph, { autoAlpha: 0 }, 1);
+  tlEndOfRound.set(endofroundEmph[0], { drawSVG: 0, autoAlpha: 1 }, 0).set(endofroundEmph[1], { drawSVG: "100% 100%", autoAlpha: 1 }, 0).to(endofroundEmph[0], 0.4, { drawSVG: "20% 50%" }, 0.1).to(endofroundEmph[1], 0.4, { drawSVG: "50% 80%" }, 0.1).to(endofroundEmph[0], 0.5, { drawSVG: "100% 100%" }, 0.5).to(endofroundEmph[1], 0.5, { drawSVG: 0 }, 0.5).set(endofroundEmph, { autoAlpha: 0 }, 1);
 
   tlFight.fromTo(fighters, 0.3, { x: -450 }, { x: -430 });
 
-  tlLeft.set([hero, leftArm], { autoAlpha: 1 }).set(hero, { y: -500 }).fromTo(leftArm, 0.5, { x: -400, y: 500, rotation: 30, transformOrigin: "left bottom" }, { x: 0, y: 0, rotation: 0, ease: Power3.easeOut }, 0);
+  tlLeft.set([hero, leftArm], { autoAlpha: 1 })
+  //.set(hero, { y: -500 })
+  .to(backdrop, 1, { autoAlpha: 0.25 }, 0).fromTo(leftArm, 0.5, { x: -400, y: 500, rotation: 30, transformOrigin: "left bottom" }, { x: 0, y: 0, rotation: 0, ease: Power3.easeOut }, 0);
 
   tlRight.set(rightHand, { autoAlpha: 1, y: 400, x: 500, rotation: -15, transformOrigin: "right bottom" }).set(finger, { rotation: -5, transformOrigin: "right bottom" })
 
@@ -122,10 +128,10 @@ var initAnimation = function initAnimation() {
   .to(rightHand, 1, { rotation: 0, y: 450, x: 150, ease: Power1.easeOut }, 1)
 
   //tap notification
-  .add("tapNote", 3.4).to(finger, 0.6, { bezier: [{ rotation: -5 }, { rotation: 2 }, { rotation: -5 }], transformOrigin: "right bottom", ease: SlowMo.ease.config(0.1, 0.5, true) }, "tapNote").to(rightHand, 0.6, { bezier: [{ rotation: 0, x: 150, y: 450 }, { rotation: 3, x: 75, y: 300 }, { rotation: 0, x: 0, y: 50 }], transformOrigin: "right bottom", ease: SlowMo.ease.config(0.1, 0.5, true) }, "tapNote").to(leftArm, 0.3, { scale: 0.997, transformOrigin: "left bottom", ease: SlowMo.ease.config(0.1, 0.5, true) }, "tapNote =+0.20")
+  .add("tapNote", 3.4).to(finger, 0.6, { bezier: [{ rotation: -5 }, { rotation: 2 }, { rotation: -5 }], transformOrigin: "right bottom", ease: SlowMo.ease.config(0.1, 0.5, true) }, "tapNote").to(rightHand, 0.6, { bezier: [{ rotation: 0, x: 150, y: 450 }, { rotation: 3, x: 55, y: 300 }, { rotation: 0, x: 10, y: 20 }], transformOrigin: "right bottom", ease: SlowMo.ease.config(0.1, 0.5, true) }, "tapNote").to(leftArm, 0.3, { scale: 0.997, transformOrigin: "left bottom", ease: SlowMo.ease.config(0.1, 0.5, true) }, "tapNote =+0.20")
 
   //tap score
-  .add("tapScore", 5.2).to(finger, 0.2, { rotation: 0, transformOrigin: "right bottom", ease: Power1.easeInOut }, "tapScore").to(finger, 0.2, { rotation: -3, transformOrigin: "right bottom", ease: SlowMo.ease.config(0.1, 0.1, true) }, "tapScore =+0.5").to(finger, 0.15, { rotation: -3, transformOrigin: "right bottom", ease: SlowMo.ease.config(0.1, 0.1, true) }, "tapScore =+2").to(leftArm, 0.2, { scale: 0.997, transformOrigin: "left bottom", ease: SlowMo.ease.config(0.1, 0.5, true) }, "tapScore =+0.6").to(leftArm, 0.2, { scale: 0.997, transformOrigin: "left bottom", ease: SlowMo.ease.config(0.1, 0.5, true) }, "tapScore =+2.08").to(rightHand, 0.6, { bezier: [{ rotation: 0, x: 150, y: 450 }, { rotation: 3, x: 50, y: 350 }, { rotation: 0, x: -30, y: 150 }], transformOrigin: "right bottom", ease: Power1.easeInOut }, "tapScore").to(rightHand, 1.5, { bezier: [{ rotation: 0, x: -30, y: 140 }, { rotation: 3, x: 30, y: 250 }, { rotation: 3, x: 70, y: 300 }, { rotation: 3, x: 60, y: 200 }, { rotation: 0, x: 60, y: 100 }], transformOrigin: "right bottom", ease: Power1.easeNone }, "tapScore =+0.6").to(rightHand, 2, { rotation: 0, y: 450, x: 150, ease: Power3.easeOut });
+  .add("tapScore", 5.2).to(finger, 0.2, { rotation: 0, transformOrigin: "right bottom", ease: Power1.easeInOut }, "tapScore").to(finger, 0.2, { rotation: -3, transformOrigin: "right bottom", ease: SlowMo.ease.config(0.1, 0.1, true) }, "tapScore =+0.5").to(finger, 0.15, { rotation: -3, transformOrigin: "right bottom", ease: SlowMo.ease.config(0.1, 0.1, true) }, "tapScore =+2").to(leftArm, 0.2, { scale: 0.997, transformOrigin: "left bottom", ease: SlowMo.ease.config(0.1, 0.5, true) }, "tapScore =+0.6").to(leftArm, 0.2, { scale: 0.997, transformOrigin: "left bottom", ease: SlowMo.ease.config(0.1, 0.5, true) }, "tapScore =+2.08").to(rightHand, 0.6, { bezier: [{ rotation: 0, x: 150, y: 450 }, { rotation: 3, x: 50, y: 350 }, { rotation: 0, x: -30, y: 150 }], transformOrigin: "right bottom", ease: Power1.easeInOut }, "tapScore").to(rightHand, 1.5, { bezier: [{ rotation: 0, x: -30, y: 140 }, { rotation: 3, x: 30, y: 250 }, { rotation: 3, x: 70, y: 300 }, { rotation: 3, x: 60, y: 200 }, { rotation: 0, x: 60, y: 100 }], transformOrigin: "right bottom", ease: Power1.easeNone }, "tapScore =+0.6").to(rightHand, 5, { rotation: 0, y: 450, x: 150, ease: Power3.easeOut });
 
   tlUI.add(tlNotification.play(), 0).add(tlScore.play(), "tlNotification =+3.3").add(tlLeader.play(), "tlScore =+4.4").add(tlFeatures.play(), "tlLeader =+3");
 
@@ -136,7 +142,7 @@ var initAnimation = function initAnimation() {
 
   tlLeader.set(leader, { x: 240 }).set(leaderContainer, { autoAlpha: 1 }).set(you, { y: 275 }).set(player[0], { y: 235 }).set(player[1], { y: 195 }).set(player[2], { y: 155 }).to(leader, 0.5, { x: 0 }).staggerFromTo(xp, 2.5, { y: 70, scale: 0, autoAlpha: 1, transformOrigin: "center" }, { y: -50, scale: 5, autoAlpha: 0 }, -0.2, 0.5).to(xp[0], 2.5, { bezier: { curviness: 2, values: [{ x: 0 }, { x: 20 }, { x: -20 }, { x: 20 }] } }, 0.5).to(xp[1], 2.5, { bezier: { curviness: 2, values: [{ x: 0 }, { x: -10 }, { x: 30 }, { x: -20 }] } }, 0.5).to(xp[2], 2.5, { bezier: { curviness: 2, values: [{ x: 0 }, { x: 30 }, { x: -10 }, { x: 30 }] } }, 0.5).to(you, 0.7, { y: 153, ease: Back.easeInOut }, 1).staggerTo(player, 0.3, { y: "+=40", ease: Power3.easeOut }, 0.1, 1.2);
 
-  tlFeatures.set(features, { x: 240 }).set(featuresContainer, { autoAlpha: 1 }).to(features, 0.5, { x: 0 });
+  tlFeatures.set(features, { x: 240 }).set(bullets[0], { y: 1200 }).set(bullets[1], { y: 1250 }).set(bullets[2], { y: 1300 }).set([featuresContainer, bulletList], { autoAlpha: 1 }).to(features, 0.5, { x: 0 }).staggerFrom(bullets, 0.5, { autoAlpha: 0, x: 3000, ease: Power4.easeOut }, 0.7, 1.5);
 
   tl.restart();
 };
