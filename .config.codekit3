@@ -23,9 +23,9 @@
 		"ema": 1,
 		"eSQ": 1,
 		"ft": 4096,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/dist\/README.html",
-		"oF": 0,
+		"oF": 1,
 		"oFM": 0,
 		"oS": 0,
 		"pHT": 0,
@@ -1363,9 +1363,9 @@
 	"\/src\/jade\/footer.jade": {
 		"cOD": 1,
 		"ft": 512,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/dist\/jade\/footer.html",
-		"oF": 0,
+		"oF": 1,
 		"oS": 0
 		},
 	"\/src\/jade\/head.jade": {
@@ -1395,9 +1395,9 @@
 	"\/src\/jade\/main.jade": {
 		"cOD": 1,
 		"ft": 512,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/dist\/jade\/main.html",
-		"oF": 0,
+		"oF": 1,
 		"oS": 0
 		},
 	"\/src\/jade\/scene.jade": {
@@ -1425,24 +1425,6 @@
 		"sC": 2,
 		"tS": 1
 		},
-	"\/src\/js\/mainTl.js": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/dist\/js\/mainTl.js",
-		"oF": 0,
-		"sC": 2,
-		"tS": 1
-		},
-	"\/src\/js\/tlTitle.js": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 0,
-		"oAP": "\/dist\/js\/tlTitle.js",
-		"oF": 0,
-		"sC": 2,
-		"tS": 1
-		},
 	"\/src\/js\/TweenMax.js": {
 		"ft": 64,
 		"mi": 0,
@@ -1466,24 +1448,6 @@
 		"oA": 2,
 		"oAP": "\/dist\/LICENSE.txt",
 		"oF": 0
-		},
-	"\/src\/README.md": {
-		"cS": 0,
-		"eF": 1,
-		"eL": 1,
-		"eLB": 0,
-		"ema": 1,
-		"eSQ": 1,
-		"ft": 4096,
-		"oA": 2,
-		"oAP": "\/dist\/README.md",
-		"oF": 1,
-		"oFM": 9,
-		"oS": 0,
-		"pHT": 0,
-		"pME": 1,
-		"rFN": 0,
-		"uCM": 0
 		},
 	"\/src\/scss\/_custom.scss": {
 		"aP": 0,
@@ -1522,14 +1486,6 @@
 			"position": 0,
 			"type": 0
 			}
-		],
-	"\/src\/js\/verdictModule.js": [
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/js\/mainTl.js",
-			"position": 0,
-			"type": 0
-			}
 		]
 	},
 "projectAttributes": {
@@ -1537,7 +1493,7 @@
 	"displayValue": "_verdict-module",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "brackets_teal",
-	"lastBuiltDate": 504156961
+	"lastBuiltDate": 504350178
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

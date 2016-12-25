@@ -1,7 +1,9 @@
 "use strict";
 
 // Animate fighters
-// Time cam and events
+// Mobile layout
+// Mobile viewport
+// Animate app store buttons
 
 var initAnimation = function initAnimation() {
 
@@ -163,5 +165,4 @@ var initAnimation = function initAnimation() {
 };
 
 initAnimation();
-"use strict";
 "use strict";
