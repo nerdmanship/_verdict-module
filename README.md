@@ -1,6 +1,7 @@
 # Verdict MMA App Promotional Website Animation
 
 Launch the animation [here](https://nerdmanship.github.io/_verdict-module/dist/)
+
 See the animation live [here](https://verdictmma.com/)
 
 An animation sequence presenting the exciting context and main use case of Verdict MMA application.
@@ -21,8 +22,10 @@ The following documents are required for the project to run properly
 * Normalizer
 * GSAP TweenMax
 
+## About
+Made by [the Nerdmanship](https://nerdmanship.com/)
 
-# Made by [the Nerdmanship](https://nerdmanship.com/)
+The Nerdmanship Animation Studio is...
 
 ## Follow
 
