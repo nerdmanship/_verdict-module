@@ -1,4 +1,5 @@
-
+// Animate fighters
+// Time cam and events
 
 const initAnimation = function() {
 
@@ -62,16 +63,18 @@ const initAnimation = function() {
   // variables
   const dur = 0.5;
   const orgPos = '0 0 2512 2055';
-  const logoPos = '890 850 800 800';
-  const arenaPos = '400 180 1800 1800';
-  const fightPos = '550 370 1200 1200';
-  const clockPos = '700 370 1100 1100';
-  const followPos = '550 370 1300 1300';
-  const heroPos = '500 780 1500 1500';
+  const logoPos = '820 820 950 950'; // check
+  const arenaPos = '400 180 1800 1800'; 
+  const fightPos = '800 370 1200 1200';
+  const clockPos = '720 400 1150 1150'; // check
+  const followPos = '600 350 1200 1200';
+  const heroPos = '500 700 1600 1600';
+  const interfacePos = '650 950 1150 1150';
+  const featuresPos = '1170 1400 100 100';
 
   // Timelines
   // Main
-  const tl = new TimelineMax({ paused: true });
+  const tl = new TimelineMax({ paused: true, repeat: -1 });
   // Sub-level 1
   const tlCam = new TimelineMax({ paused: true });
   const tlTitle = new TimelineMax({ paused: true });
@@ -84,6 +87,7 @@ const initAnimation = function() {
   const tlCountdown = new TimelineMax({ paused: true });
   const tlEndOfRound = new TimelineMax({ paused: true});
   const tlFight = new TimelineMax({ repeat: 15 });
+  const tlWalk = new TimelineMax({ });
   
   const tlLeft = new TimelineMax({ paused: true });
   const tlRight = new TimelineMax({ paused: true });
@@ -93,24 +97,35 @@ const initAnimation = function() {
   const tlScore = new TimelineMax({ paused: true });
   const tlLeader = new TimelineMax({ paused: true });
   const tlFeatures = new TimelineMax({ paused: true });
-  
+
+  var reset = function() {
+    TweenMax.set([cage, logoGradient, logoShadow, tagline], { autoAlpha: 0 });
+  }
+
   // Main
   tl
+    .add(reset)
     .add(tlCam.play(), 0)
     .add(tlTitle.play(), 0)
-    .add(tlArena.play(), 4)
+    .add(tlArena.play(), 3)
     .add(tlHero.play(), 15)
     ;
+
 
 
   // Sub-Level 1
   tlCam
     .set(view, { attr: {viewBox: logoPos } })
-    .to(view, 3, { attr: {viewBox: arenaPos }, ease: Power2.easeInOut }, 4)
-    .to(view, 3.5, { attr: {viewBox: fightPos }, ease: Power1.easeInOut }, 7)
-    .to(view, 1, { attr: {viewBox: clockPos }, ease: Power4.easeInOut }, 10.5)
-    .to(view, 3, { attr: {viewBox: followPos }, ease: Power1.easeInOut }, 12)
-    .to(view, 5, { attr: {viewBox: heroPos }, ease: Power4.easeInOut }, 14)
+    .to(view, 3, { rotation: -1, transformOrigin: "center", attr: {viewBox: arenaPos }, ease: Power3.easeInOut }, 4)
+    .to(view, 2.7, { rotation: 1, transformOrigin: "center", attr: {viewBox: fightPos }, ease: Power1.easeInOut }, 7)
+    .to(view, 1.3, { rotation: 0, transformOrigin: "center", attr: {viewBox: clockPos }, ease: Power4.easeInOut }, 9.7)
+    .to(view, 2.5, { rotation: 1, transformOrigin: "center", attr: {viewBox: followPos }, ease: Power1.easeInOut }, 11)
+    .to(view, 2.5, { rotation: 0, transformOrigin: "center", attr: {viewBox: heroPos }, ease: Power2.easeInOut }, 13.5)
+    .to(view, 1, { rotation: 3, transformOrigin: "center", attr: {viewBox: interfacePos }, ease: Power3.easeInOut }, 19)
+    
+    // zoom in to white and fade out everything
+    .to(view, 2, { rotation: 0, transformOrigin: "center", attr: {viewBox: featuresPos }, ease: Power4.easeInOut }, 26)
+    .set(view, { attr: {viewBox: logoPos }, ease: Power4.easeInOut }, 28)
   ;
 
   tlTitle
@@ -124,6 +139,7 @@ const initAnimation = function() {
     .add(tlCage.play(), "arena")
     .add(tlCountdown.play(), "arena =+2")
     .add(tlFight.play(), "arena =+2")
+    .add(tlWalk.play(), "arena =+8")
     ;
 
   tlHero
@@ -187,9 +203,12 @@ const initAnimation = function() {
   ;
   
   tlFight
-    .fromTo(fighters, 0.3, { x: -450 }, { x: -430 })
+    .fromTo(fighters, 0.3, { x: -280 }, { x: -300 })
   ;
 
+  tlWalk
+    .to(fighters, 10, { x: -700, ease: Power1.easeNone })
+  ;
   
   tlLeft
     .set([hero, leftArm], { autoAlpha: 1 })
@@ -244,7 +263,7 @@ const initAnimation = function() {
       { rotation: 0, x: 60, y: 100}
       ], transformOrigin: "right bottom", ease: Power1.easeNone }, "tapScore =+0.6")
 
-    .to(rightHand, 5, { rotation: 0, y: 450, x: 150, ease: Power3.easeOut})
+    .to(rightHand, 2, { rotation: 0, y: 600, x: 250, ease: Power3.easeOut})
   ;
 
   tlUI
@@ -276,10 +295,10 @@ const initAnimation = function() {
     .set(notificationEmphasis, { autoAlpha: 0 }, 1)
 
     .to(notificationTopic, 0.3, { autoAlpha: 1 }, 0.5)
-    .to(notificationTopic, 0.3, { y: 0, ease: Back.easeIn }, 1)
+    .to(notificationTopic, 0.5, { y: 0, ease: Power4.easeInOut }, 1)
     .to(notificationMessage, 0.3, { autoAlpha: 1 }, 1.3)
     .from(notificationMessage, 0.3, { y: 40 }, 1.1)
-
+    .to(notificationModule, 0.2, { autoAlpha: 0.7, ease: SlowMo.ease.config(0.1, 0.1, true) }, 2.7)
     .to([notification, notificationBackdrop], 0.3, { autoAlpha: 0 }, 3)
     ;
   
@@ -308,7 +327,7 @@ const initAnimation = function() {
     .set(player[1], { y: 195 })
     .set(player[2], { y: 155 })
 
-    .to(leader, 0.5, { x: 0 })
+    .to(leader, 0.3, { x: 0 })
     .staggerFromTo(xp, 2.5, { y: 70, scale: 0, autoAlpha: 1, transformOrigin: "center" }, { y: -50, scale: 5, autoAlpha: 0 }, -0.2, 0.5)
     .to(xp[0], 2.5, { bezier: { curviness: 2, values: [ { x: 0 }, { x: 20 }, { x: -20 }, { x: 20 } ]} }, 0.5)
     .to(xp[1], 2.5, { bezier: { curviness: 2, values: [ { x: 0 }, { x: -10 }, { x: 30 }, { x: -20 } ]} }, 0.5)
@@ -325,11 +344,13 @@ const initAnimation = function() {
     .set(bullets[2], { y: 1300 })
     .set([featuresContainer, bulletList], { autoAlpha: 1 })
 
-    .to(features, 0.5, { x: 0 })
-    .staggerFrom(bullets, 0.5, { autoAlpha: 0, x: 3000, ease: Power4.easeOut }, 0.7, 1.5)
+    .to(features, 0.3, { x: 0 })
+    .set([cage, hero, logoGradient, logoShadow, logo, tagline], { autoAlpha: 0 }, 1)
+    .staggerFrom(bullets, 1, { x: 2000, ease: Power4.easeInOut }, 0.7, 1)
+    .staggerTo(bullets, 1, { x: 0, ease: Power4.easeInOut }, 0.3, 5)
   ;
 
-  tl.restart(); 
+  tl.restart();
 }
 
 initAnimation();
