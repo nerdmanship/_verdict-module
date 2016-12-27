@@ -154,7 +154,7 @@ const initAnimation = function() {
 
 // Sub-Level 2  
   tlLogo
-    .set(logo, { autoAlpha: 1 })
+    .set(logo, { autoAlpha: 1, fill: "#ff00ff" })
     .from(logo, 0.4, { scale: 0, transformOrigin: "center", ease: Power4.easeIn }, 0)
     .from(logo, 0.6, { rotation: 180, transformOrigin: "center", ease: Back.easeOut.config(0.3) }, 0) // add shaking ease
     .fromTo(logo, 0.4, { y: 200 }, { y: 0, ease: Power2.easeOut }, 0)
