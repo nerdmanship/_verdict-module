@@ -1360,6 +1360,14 @@
 		"oAP": "\/dist\/favicon.ico",
 		"oF": 0
 		},
+	"\/src\/jade\/controls.jade": {
+		"cOD": 1,
+		"ft": 512,
+		"oA": 1,
+		"oAP": "\/dist\/jade\/controls.html",
+		"oF": 0,
+		"oS": 0
+		},
 	"\/src\/jade\/footer.jade": {
 		"cOD": 1,
 		"ft": 512,
@@ -1421,6 +1429,15 @@
 		"mi": 0,
 		"oA": 0,
 		"oAP": "\/dist\/js\/app.js",
+		"oF": 0,
+		"sC": 2,
+		"tS": 1
+		},
+	"\/src\/js\/controls.js": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/dist\/js\/controls.js",
 		"oF": 0,
 		"sC": 2,
 		"tS": 1
@@ -1503,12 +1520,18 @@
 			"linkedFileAbbreviatedPath": "\/src\/js\/verdictModule.js",
 			"position": 0,
 			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/src\/js\/controls.js",
+			"position": 1,
+			"type": 0
 			}
 		]
 	},
 "projectAttributes": {
 	"creationDate": 503551669,
-	"displayValue": "Verdict clone",
+	"displayValue": "_verdict-module",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "brackets_teal",
 	"lastBuiltDate": 504350178
