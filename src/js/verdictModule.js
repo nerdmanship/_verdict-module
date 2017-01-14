@@ -1,27 +1,3 @@
-/*
-##############################################################################
-
-  TODO
-  
-Animate all feet movement
-Animate ambience movement
-Adjust original animation
-
-
-Conor impact in end of tlStrike
-tlRetreat, Conor blocks the strike and takes two steps back
-
-
-Fix Conors dragging leg
-Remove Conors floppy front arm
-
-// Animate fighters
-// Mobile layout
-// Mobile viewport
-// Animate app store buttons
-
-*/
-
 // var verdict = function() {
 
 /*######################################################################################################################################################################*/

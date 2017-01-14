@@ -33,14 +33,6 @@
 		"rFN": 0,
 		"uCM": 0
 		},
-	"\/src\/apple-touch-icon.png": {
-		"ft": 32768,
-		"iS": 3959,
-		"oA": 0,
-		"oAP": "\/dist\/apple-touch-icon.png",
-		"oF": 0,
-		"opt": 1
-		},
 	"\/src\/assets\/bower.json": {
 		"ft": 524288,
 		"oA": 1,
@@ -1354,12 +1346,6 @@
 		"sC": 2,
 		"tS": 1
 		},
-	"\/src\/favicon.ico": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/dist\/favicon.ico",
-		"oF": 0
-		},
 	"\/src\/jade\/controls.jade": {
 		"cOD": 1,
 		"ft": 512,
@@ -1534,7 +1520,7 @@
 	"displayValue": "_verdict-module",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "brackets_teal",
-	"lastBuiltDate": 504350178
+	"lastBuiltDate": 506065034
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
