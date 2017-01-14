@@ -415,11 +415,15 @@ template {
 [hidden] {
   display: none; }
 
+body {
+  background-color: #eee; }
+
 #header {
   height: 600px;
-  overflow: hidden; }
+  overflow: hidden;
+  background-color: #fff; }
 
-#verdict-module {
+#verdict-module, #fallback {
   position: relative;
   top: 50%;
   left: 50%;
@@ -427,8 +431,18 @@ template {
   width: 1600px;
   overflow: hidden; }
 
+#fallback {
+  display: none; }
+
+.no-js #fallback {
+  display: block; }
+
 .hidden {
   opacity: 0; }
 
 #joint, #forceBox {
   opacity: 0; }
+
+@media (max-width: 600px) {
+  #header {
+    height: 450px; } }

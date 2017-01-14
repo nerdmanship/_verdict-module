@@ -1349,17 +1349,17 @@
 	"\/src\/jade\/controls.jade": {
 		"cOD": 1,
 		"ft": 512,
-		"oA": 1,
+		"oA": 0,
 		"oAP": "\/dist\/jade\/controls.html",
 		"oF": 0,
 		"oS": 0
 		},
-	"\/src\/jade\/footer.jade": {
+	"\/src\/jade\/fallback.jade": {
 		"cOD": 1,
 		"ft": 512,
 		"oA": 1,
-		"oAP": "\/dist\/jade\/footer.html",
-		"oF": 1,
+		"oAP": "\/dist\/jade\/fallback.html",
+		"oF": 0,
 		"oS": 0
 		},
 	"\/src\/jade\/head.jade": {
@@ -1422,7 +1422,7 @@
 	"\/src\/js\/controls.js": {
 		"ft": 64,
 		"mi": 0,
-		"oA": 1,
+		"oA": 0,
 		"oAP": "\/dist\/js\/controls.js",
 		"oF": 0,
 		"sC": 2,
@@ -1506,12 +1506,6 @@
 			"linkedFileAbbreviatedPath": "\/src\/js\/verdictModule.js",
 			"position": 0,
 			"type": 0
-			},
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/js\/controls.js",
-			"position": 1,
-			"type": 0
 			}
 		]
 	},
@@ -1520,7 +1514,7 @@
 	"displayValue": "_verdict-module",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "brackets_teal",
-	"lastBuiltDate": 506065034
+	"lastBuiltDate": 506065678
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

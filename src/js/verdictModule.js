@@ -1,4 +1,25 @@
-// var verdict = function() {
+var techNeeded = Modernizr.svg && Modernizr.cssanimations && Modernizr.csstransforms && Modernizr.inlinesvg;
+var isBrowserOutdated = false;
+var isScreenSmall = false;
+
+if (window.innerWidth < 640 ) { isScreenSmall = true; }
+if (!(techNeeded)) { isBrowserOutdated = true; }
+
+
+if (isBrowserOutdated) {
+  fallback();
+} else {
+  verdict();
+}
+
+function fallback() {
+  console.log("Loading fallback");
+  document.getElementById('fallback').style.display="block";
+}
+
+
+
+function verdict() {
 
 /*######################################################################################################################################################################*/
 
@@ -10,8 +31,8 @@
     tagline = view.querySelector("[data-tagline=tagline]"),
     cage = view.querySelector("[data-cage]"),
     timer = view.querySelector("[data-timer]"),
-    endofround = view.querySelector("[data-endofround]"),
-    endofroundEmph = view.querySelectorAll("[data-endofroundEmph]"),
+    endofround = view.querySelector("[data-endofround=text]"),
+    eorEmphasis = view.querySelectorAll("[data-endofround=emphasis]"),
     zero = view.querySelector("[data-zero]"),
     one = view.querySelector("[data-one]"),
     two = view.querySelector("[data-two]"),
@@ -26,8 +47,8 @@
     notificationContainer = view.querySelector("[data-notification=container]"),
     notificationBackdrop = view.querySelector("[data-notification=backdrop]"),
     notification = view.querySelector("[data-notification=content]"),
-    notificationModule = view.querySelectorAll("[data-notification=module]"),
-    notificationAffordability = view.querySelectorAll("[data-notification=affordability]"),
+    notificationModule = view.querySelector("[data-notification=module]"),
+    notificationAffordability = view.querySelector("[data-notification=affordability]"),
     notificationTopic = view.querySelector("[data-notification=topic]"),
     notificationMessage = view.querySelector("[data-notification=message]"),
     notificationEmphasis = view.querySelectorAll("[data-notification=emphasis]"),
@@ -50,13 +71,8 @@
     n = {}, // Nate
     bodyElems = ["body","FootFront","FootBack","KneeFront","KneeBack","LegFront","LegBack","HipFront","HipBack","SpineFront","SpineBack","ShoulderFront","ShoulderBack","ElbowFront","ElbowBack","WristFront","WristBack","Neck","Head", "fingers", "noFingers"];
 
-    for (var i = 0; i < bodyElems.length; i++) {
-      c[bodyElems[i]] = view.querySelector("[data-conor="+bodyElems[i]+"]");
-    }
-
-    for (var i = 0; i < bodyElems.length; i++) {
-      n[bodyElems[i]] = view.querySelector("[data-nate="+bodyElems[i]+"]");
-    }
+  for (var i = 0; i < bodyElems.length; i++) { c[bodyElems[i]] = view.querySelector("[data-conor="+bodyElems[i]+"]"); }
+  for (var i = 0; i < bodyElems.length; i++) { n[bodyElems[i]] = view.querySelector("[data-nate="+bodyElems[i]+"]"); }
 
   // Viewbox positions
   var orgPos = '0 0 2512 2055',
@@ -67,10 +83,16 @@
     followPos = '600 350 1200 1200',
     heroPos = '500 700 1600 1600',
     interfacePos = '650 950 1150 1150',
-    featuresPos = '1170 1400 100 100';
+    featuresPos = '1170 1400 100 100',
+
+    smallLogoPos = '400 400 1800 1800',
+    smallArenaPos = '-200 100 3000 2000',
+    smallHeroPos = '200 450 2000 2000',
+    smallFeaturesPos = '1170 1400 100 100'
+    ;
 
   // Timelines
-  var tlMain = new TimelineMax({ paused: true, repeat: -1, onUpdate:updateStats, onUpdateParams: tlMain }),
+  var tlMain = new TimelineMax({ paused: true, repeat: -1 }),
     tl = {},
     tls = [ "cam", "title", "arena", "hero", "logo", "tagline", "cage", "countdown", "endOfRound", "left", "right", "interface", "notification", "score", "leader", "features", "fighters", "fighting", "walking", "walkingNate", "walkingConor" ],
     tlC = {},
@@ -86,10 +108,6 @@
 
 
 /*######################################################################################################################################################################*/
-
-  function reset() {
-    TweenMax.set([cage, logoGradient, logoShadow, tagline], { autoAlpha: 0 });
-  }
 
   function conorStartPose() {
     // Rotation
@@ -167,7 +185,7 @@
     nateStartPose();
   }
 
-  setStartingValues();
+  
 
 
 /*######################################################################################################################################################################*/
@@ -175,7 +193,6 @@
 
   // Main
   tlMain
-    .add(reset)
     .add(tl.cam.play(), 0)
     .add(tl.title.play(), 0)
     .add(tl.arena.play(), 3)
@@ -183,19 +200,29 @@
     ;
 
   // Sub-Level 1
-  tl.cam
-    .set(view, { attr: {viewBox: logoPos } })
-    .to(view, 3, { rotation: -1, transformOrigin: "center", attr: {viewBox: arenaPos }, ease: Power3.easeInOut }, 4)
-    .to(view, 2.7, { rotation: 2, transformOrigin: "center", attr: {viewBox: fightPos }, ease: Back.easeInOut }, 7)
-    .to(view, 1.3, { rotation: 0, transformOrigin: "center", attr: {viewBox: clockPos }, ease: Power3.easeInOut }, 9.7)
-    .to(view, 2.5, { rotation: 1, transformOrigin: "center", attr: {viewBox: followPos }, ease: Power1.easeInOut }, 11)
-    .to(view, 2.5, { rotation: 0, transformOrigin: "center", attr: {viewBox: heroPos }, ease: Power4.easeInOut }, 13.5)
-    .to(view, 1, { rotation: 3, transformOrigin: "center", attr: {viewBox: interfacePos }, ease: Back.easeOut }, 18.5)
-    
-    // zoom in to white and fade out everything
-    .to(view, 2, { rotation: 0, transformOrigin: "center", attr: {viewBox: featuresPos }, ease: Power4.easeInOut }, 25.5)
-    .set(view, { attr: {viewBox: logoPos }, ease: Power4.easeInOut }, 28)
-    ;
+  if (isScreenSmall) {
+    tl.cam
+      .set(view, { attr: {viewBox: smallLogoPos } } )
+      .to(view, 1, { attr: {viewBox: smallArenaPos }, ease: Power4.easeInOut }, 6)
+      .to(view, 1, { attr: {viewBox: smallHeroPos }, ease: Power4.easeInOut }, 14.5)
+      .to(view, 1, { attr: {viewBox: smallFeaturesPos }, ease: Power4.easeInOut }, 26.5)
+      .set(view, { attr: {viewBox: smallLogoPos } }, 28)
+      ;
+  } else {
+    tl.cam
+      .set(view, { attr: {viewBox: logoPos } })
+      .to(view, 3, { rotation: -1, transformOrigin: "center", attr: {viewBox: arenaPos }, ease: Power3.easeInOut }, 4)
+      .to(view, 2.7, { rotation: 2, transformOrigin: "center", attr: {viewBox: fightPos }, ease: Back.easeInOut }, 7)
+      .to(view, 1.3, { rotation: 0, transformOrigin: "center", attr: {viewBox: clockPos }, ease: Power3.easeInOut }, 9.7)
+      .to(view, 2.5, { rotation: 1, transformOrigin: "center", attr: {viewBox: followPos }, ease: Power1.easeInOut }, 11)
+      .to(view, 2.5, { rotation: 0, transformOrigin: "center", attr: {viewBox: heroPos }, ease: Power4.easeInOut }, 13.5)
+      .to(view, 1, { rotation: 3, transformOrigin: "center", attr: {viewBox: interfacePos }, ease: Back.easeOut }, 18.5)
+      
+      // zoom in to white and fade out everything
+      .to(view, 2, { rotation: 0, transformOrigin: "center", attr: {viewBox: featuresPos }, ease: Power4.easeInOut }, 25.5)
+      .set(view, { attr: {viewBox: logoPos }, ease: Power4.easeInOut }, 28)
+      ;
+  }
 
   tl.title
     .add("title")
@@ -232,12 +259,12 @@
   tl.cage
     .add("cage")
     .to(logoGradient, 0.5, { autoAlpha: 1, ease: Linear.easeNone }, "cage")
-    .to([cage, logoShadow], 0.5, { autoAlpha: 1, ease: Linear.easeNone }, "cage =+0.5")
+    .to([cage], 0.5, { autoAlpha: 1, ease: Linear.easeNone }, "cage =+0.5")
+    .set(timer, { y: -50, autoAlpha: 1 }, 0)
     ;
 
   tl.countdown
-    .set(timer, { y: -50 })
-    .from(four, 0.99, { scale: 0.9, transformOrigin: "center", ease: Power4.easeInOut })
+    .from(four, 0.99, { scale: 0.9, transformOrigin: "center", ease: Power4.easeInOut },0)
     .to(four, 0.01, { autoAlpha: 0 }, 1)
     .to(three, 0.01, { autoAlpha: 1 }, 1)
     .fromTo(three, 0.99, { scale: 0.9, transformOrigin: "center", ease: Power4.easeInOut }, { scale: 1 }, 1)
@@ -257,16 +284,16 @@
     ;
 
   tl.endOfRound
-    .set(endofroundEmph[0], { drawSVG: 0, autoAlpha: 1 }, 0)
-    .set(endofroundEmph[1], { drawSVG: "100% 100%", autoAlpha: 1 }, 0)
+    .set(eorEmphasis[0], { drawSVG: 0, autoAlpha: 1 }, 0)
+    .set(eorEmphasis[1], { drawSVG: "100% 100%", autoAlpha: 1 }, 0)
 
-    .to(endofroundEmph[0], 0.4, { drawSVG: "20% 50%" }, 0.1)
-    .to(endofroundEmph[1], 0.4, { drawSVG: "50% 80%" }, 0.1)
+    .to(eorEmphasis[0], 0.4, { drawSVG: "20% 50%" }, 0.1)
+    .to(eorEmphasis[1], 0.4, { drawSVG: "50% 80%" }, 0.1)
     
-    .to(endofroundEmph[0], 0.5, { drawSVG: "100% 100%" }, 0.5)
-    .to(endofroundEmph[1], 0.5, { drawSVG: 0 }, 0.5)
+    .to(eorEmphasis[0], 0.5, { drawSVG: "100% 100%" }, 0.5)
+    .to(eorEmphasis[1], 0.5, { drawSVG: 0 }, 0.5)
     
-    .set(endofroundEmph, { autoAlpha: 0 }, 1)
+    .set(eorEmphasis, { autoAlpha: 0 }, 1)
     ;
   
   tl.left
@@ -1219,12 +1246,10 @@
 
 
 
-
-    tlMain.restart();
+  setStartingValues();
+  tlMain.play();
 
 
 /*######################################################################################################################################################################*/
 
-// };
-
-// verdict();
+}
