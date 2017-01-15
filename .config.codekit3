@@ -9,12 +9,6 @@
 	],
 "creatorBuild": "25479",
 "files": {
-	"\/dist": {
-		"ft": 65536,
-		"oA": 1,
-		"oAP": "\/dist\/dist",
-		"oF": 0
-		},
 	"\/README.md": {
 		"cS": 0,
 		"eF": 1,
@@ -1471,8 +1465,8 @@
 		"uCM": 0
 		},
 	"\/src\/scss\/_custom.scss": {
-		"aP": 0,
-		"bl": 0,
+		"aP": 1,
+		"bl": 1,
 		"dP": 10,
 		"dS": 0,
 		"ft": 4,
@@ -1484,8 +1478,8 @@
 		"uL": 1
 		},
 	"\/src\/scss\/app.scss": {
-		"aP": 0,
-		"bl": 0,
+		"aP": 1,
+		"bl": 1,
 		"dP": 10,
 		"dS": 0,
 		"ft": 4,
@@ -1514,7 +1508,7 @@
 	"displayValue": "_verdict-module",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "brackets_teal",
-	"lastBuiltDate": 506065678
+	"lastBuiltDate": 506153752
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
