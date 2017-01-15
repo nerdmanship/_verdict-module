@@ -421,9 +421,17 @@ body {
 #header {
   height: 600px;
   overflow: hidden;
-  background-color: #fff; }
+  background-color: #fdd; }
 
-#verdict-module, #fallback {
+#verdict-module {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1600px;
+  overflow: hidden; }
+
+#fallback {
   position: relative;
   top: 50%;
   left: 50%;
