@@ -1537,7 +1537,7 @@
 	"displayValue": "_verdict-module",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "brackets_teal",
-	"lastBuiltDate": 506180354
+	"lastBuiltDate": 506184000
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
@@ -2864,7 +2864,7 @@
 		},
 	"esLintSourceType": 0,
 	"externalServerAddress": "http:\/\/localhost:8888",
-	"gitIgnoreBuildFolder": 1,
+	"gitIgnoreBuildFolder": 0,
 	"hideConfigFile": 1,
 	"jsCheckerReservedNamesString": "",
 	"jsHintFlags2": {
@@ -3617,7 +3617,7 @@
 			}
 		},
 	"uglifyReservedNamesString": "$",
-	"websiteRelativeRoot": "dist\/"
+	"websiteRelativeRoot": "\/dist"
 	},
 "settingsFileVersion": "3"
 }
