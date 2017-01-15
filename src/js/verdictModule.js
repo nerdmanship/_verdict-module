@@ -24,7 +24,8 @@ function verdict() {
 /*######################################################################################################################################################################*/
 
   // DOM Elements
-  var view = document.querySelector("[data-view]"),
+  var view = document.querySelector("[data-view=zoom]"),
+    viewRotation = document.querySelector("[data-view=rotation]"),
     logo = view.querySelector("[data-logo=vanilla]"),
     logoShadow = view.querySelector("[data-logo=shadow]"),
     logoGradient = view.querySelector("[data-logo=gradient]"),
@@ -211,15 +212,22 @@ function verdict() {
   } else {
     tl.cam
       .set(view, { attr: {viewBox: logoPos } })
-      .to(view, 3, { rotation: -1, transformOrigin: "center", attr: {viewBox: arenaPos }, ease: Power3.easeInOut }, 4)
-      .to(view, 2.7, { rotation: 2, transformOrigin: "center", attr: {viewBox: fightPos }, ease: Back.easeInOut }, 7)
-      .to(view, 1.3, { rotation: 0, transformOrigin: "center", attr: {viewBox: clockPos }, ease: Power3.easeInOut }, 9.7)
-      .to(view, 2.5, { rotation: 1, transformOrigin: "center", attr: {viewBox: followPos }, ease: Power1.easeInOut }, 11)
-      .to(view, 2.5, { rotation: 0, transformOrigin: "center", attr: {viewBox: heroPos }, ease: Power4.easeInOut }, 13.5)
-      .to(view, 1, { rotation: 3, transformOrigin: "center", attr: {viewBox: interfacePos }, ease: Back.easeOut }, 18.5)
+      .to(view, 3, { attr: {viewBox: arenaPos }, ease: Power3.easeInOut }, 4)
+      .to(viewRotation, 3, { rotation: -1, transformOrigin: "center", ease: Power3.easeInOut }, 4)
+      .to(view, 2.7, { attr: {viewBox: fightPos }, ease: Back.easeInOut }, 7)
+      .to(viewRotation, 2.7, { rotation: 2, transformOrigin: "center", ease: Back.easeInOut }, 7)
+      .to(view, 1.3, { attr: {viewBox: clockPos }, ease: Power3.easeInOut }, 9.7)
+      .to(viewRotation, 1.3, { rotation: 0, transformOrigin: "center", ease: Power3.easeInOut }, 9.7)
+      .to(view, 2.5, { attr: {viewBox: followPos }, ease: Power1.easeInOut }, 11)
+      .to(viewRotation, 2.5, { rotation: 1, transformOrigin: "center", ease: Power1.easeInOut }, 11)
+      .to(view, 2.5, { attr: {viewBox: heroPos }, ease: Power4.easeInOut }, 13.5)
+      .to(viewRotation, 2.5, { rotation: 0, transformOrigin: "center", ease: Power4.easeInOut }, 13.5)
+      .to(view, 1, { attr: {viewBox: interfacePos }, ease: Back.easeOut }, 18.5)
+      .to(viewRotation, 1, { rotation: 3, transformOrigin: "center", ease: Back.easeOut }, 18.5)
       
       // zoom in to white and fade out everything
-      .to(view, 2, { rotation: 0, transformOrigin: "center", attr: {viewBox: featuresPos }, ease: Power4.easeInOut }, 25.5)
+      .to(view, 2, { attr: {viewBox: featuresPos }, ease: Power4.easeInOut }, 25.5)
+      .to(viewRotation, 2, { rotation: 0, transformOrigin: "center", ease: Power4.easeInOut }, 25.5)
       .set(view, { attr: {viewBox: logoPos }, ease: Power4.easeInOut }, 28)
       ;
   }

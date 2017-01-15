@@ -425,6 +425,8 @@ body {
 
 .svg-position {
   position: relative;
+  width: 2512px;
+  height: 2055px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); }
