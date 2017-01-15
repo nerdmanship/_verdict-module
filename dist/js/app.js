@@ -425,5 +425,5 @@ function verdict() {
 }
 "use strict";
 
-TweenMax.from(document.querySelectorAll("[data-apps]"), 1, { y: 100, autoAlpha: 0, delay: 2.5 });
+TweenMax.to(document.querySelectorAll("[data-apps]"), 1, { y: 0, autoAlpha: 1, delay: 2.5 });
 "use strict";
