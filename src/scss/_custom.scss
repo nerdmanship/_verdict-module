@@ -17,7 +17,7 @@
 
 #fallback {
   position: relative;
-  height: 100%;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -46,10 +46,26 @@
 
 .app-buttons {
   text-align: center;
-  padding: 20px;
-  button {
-    height: 40px;
-    width: 150px; 
-    margin: 20px;
+  padding: 50px 0px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  width: 314px;
+  margin: 0 auto;
+  .store-btn { 
+    width: 152px;
+    height: 45px;
+    display: inline-block;
+    text-indent: -9999px;
+    text-align: center;
+    opacity: 0;
+  }
+  .appStore {
+    background: url(/images/appstore.svg) no-repeat;
+    margin-right:10px;
+  }
+  .googlePlay {
+    background: url(/images/googleplay.png) no-repeat;
   }
 }
+
+.no-js .app-buttons button { opacity: 1; }

@@ -1346,12 +1346,30 @@
 		"sC": 2,
 		"tS": 1
 		},
+	"\/src\/images\/appstore.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/dist\/images\/appstore.svg",
+		"oF": 3,
+		"opt": 1,
+		"plM": 3758088159,
+		"prP": 1
+		},
 	"\/src\/images\/fallback.png": {
 		"ft": 32768,
 		"iS": 1552496,
 		"oA": 0,
 		"oAP": "\/dist\/images\/fallback.png",
 		"oF": 1,
+		"opt": 1
+		},
+	"\/src\/images\/googleplay.png": {
+		"ft": 32768,
+		"iS": 8592,
+		"oA": 0,
+		"oAP": "\/dist\/images\/googleplay.png",
+		"oF": 0,
 		"opt": 1
 		},
 	"\/src\/jade\/controls.jade": {
@@ -1470,16 +1488,16 @@
 		"oF": 0
 		},
 	"\/src\/README.md": {
-		"cS": 0,
+		"cS": 1,
 		"eF": 1,
 		"eL": 1,
 		"eLB": 0,
 		"ema": 1,
 		"eSQ": 1,
 		"ft": 4096,
-		"oA": 0,
-		"oAP": "\/dist\/README.html",
-		"oF": 0,
+		"oA": 2,
+		"oAP": "\/dist\/README.md",
+		"oF": 3,
 		"oFM": 9,
 		"oS": 0,
 		"pHT": 0,
@@ -1537,7 +1555,7 @@
 	"displayValue": "_verdict-module",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "brackets_teal",
-	"lastBuiltDate": 506184228
+	"lastBuiltDate": 506187113
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
