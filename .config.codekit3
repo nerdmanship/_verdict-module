@@ -26,7 +26,7 @@
 		"oA": 1,
 		"oAP": "\/dist\/README.html",
 		"oF": 1,
-		"oFM": 0,
+		"oFM": 9,
 		"oS": 0,
 		"pHT": 0,
 		"pME": 1,
@@ -1480,7 +1480,7 @@
 		"oA": 0,
 		"oAP": "\/dist\/README.html",
 		"oF": 0,
-		"oFM": 0,
+		"oFM": 9,
 		"oS": 0,
 		"pHT": 0,
 		"pME": 1,
@@ -1537,7 +1537,7 @@
 	"displayValue": "_verdict-module",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "brackets_teal",
-	"lastBuiltDate": 506184000
+	"lastBuiltDate": 506184228
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
