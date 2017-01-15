@@ -415,14 +415,10 @@ template {
 [hidden] {
   display: none; }
 
-body {
-  background-color: #eee; }
-
 #header {
   height: 600px;
   width: 100%;
-  overflow: hidden;
-  background-color: #fff; }
+  overflow: hidden; }
 
 #verdict-module {
   position: relative;
@@ -435,11 +431,7 @@ body {
 
 #fallback {
   position: relative;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 1600px;
+  height: 100%;
   overflow: hidden; }
 
 #fallback {
@@ -457,3 +449,20 @@ body {
 @media (max-width: 600px) {
   #header {
     height: 450px; } }
+
+#main {
+  height: 600px; }
+
+.app-section {
+  height: 200px;
+  padding: 20px;
+  text-align: center;
+  background-color: #fafafa; }
+  .app-section p {
+    padding-top: 20px;
+    margin: 0; }
+
+.app-buttons button {
+  height: 40px;
+  width: 150px;
+  margin: 20px; }

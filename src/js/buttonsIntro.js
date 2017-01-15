@@ -1,0 +1,1 @@
+TweenMax.from(document.querySelectorAll("[data-apps]"), 1, { y: 100, autoAlpha: 0, delay: 2.5});

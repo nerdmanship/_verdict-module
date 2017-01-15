@@ -9,6 +9,12 @@
 	],
 "creatorBuild": "25479",
 "files": {
+	"\/dist": {
+		"ft": 65536,
+		"oA": 1,
+		"oAP": "\/dist\/dist",
+		"oF": 0
+		},
 	"\/README.md": {
 		"cS": 0,
 		"eF": 1,
@@ -1340,12 +1346,20 @@
 		"sC": 2,
 		"tS": 1
 		},
+	"\/src\/images\/fallback.png": {
+		"ft": 32768,
+		"iS": 1552496,
+		"oA": 0,
+		"oAP": "\/dist\/images\/fallback.png",
+		"oF": 1,
+		"opt": 1
+		},
 	"\/src\/jade\/controls.jade": {
 		"cOD": 1,
 		"ft": 512,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/dist\/jade\/controls.html",
-		"oF": 0,
+		"oF": 1,
 		"oS": 0
 		},
 	"\/src\/jade\/fallback.jade": {
@@ -1413,12 +1427,21 @@
 		"sC": 2,
 		"tS": 1
 		},
+	"\/src\/js\/buttonsIntro.js": {
+		"ft": 64,
+		"mi": 0,
+		"oA": 1,
+		"oAP": "\/dist\/js\/buttonsIntro.js",
+		"oF": 0,
+		"sC": 2,
+		"tS": 1
+		},
 	"\/src\/js\/controls.js": {
 		"ft": 64,
 		"mi": 0,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/dist\/js\/controls.js",
-		"oF": 0,
+		"oF": 1,
 		"sC": 2,
 		"tS": 1
 		},
@@ -1500,6 +1523,12 @@
 			"linkedFileAbbreviatedPath": "\/src\/js\/verdictModule.js",
 			"position": 0,
 			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/src\/js\/buttonsIntro.js",
+			"position": 1,
+			"type": 0
 			}
 		]
 	},
@@ -1508,7 +1537,7 @@
 	"displayValue": "_verdict-module",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "brackets_teal",
-	"lastBuiltDate": 506153752
+	"lastBuiltDate": 506180354
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
