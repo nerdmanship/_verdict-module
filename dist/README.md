@@ -35,5 +35,5 @@ The following documents are required for the project to run properly
 
 The code is available under the [MIT license](LICENSE.txt).
 
-
+Graphics, animation and code by [Johan Strömqvist](https://www.linkedin.com/in/johanstromqvist)
 
