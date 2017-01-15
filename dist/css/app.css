@@ -450,21 +450,10 @@ template {
   #header {
     height: 450px; } }
 
-#main {
-  height: 600px; }
-
-.app-section {
-  height: 200px;
-  padding: 20px;
+.app-buttons {
   text-align: center;
-  background-color: #fafafa;
-  -webkit-transform: translateY(100px);
-          transform: translateY(100px); }
-  .app-section p {
-    padding-top: 20px;
-    margin: 0; }
-
-.app-buttons button {
-  height: 40px;
-  width: 150px;
-  margin: 20px; }
+  padding: 20px; }
+  .app-buttons button {
+    height: 40px;
+    width: 150px;
+    margin: 20px; }

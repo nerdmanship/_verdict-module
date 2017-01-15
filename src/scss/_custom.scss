@@ -43,23 +43,10 @@
   }
 }
 
-#main {
-  height: 600px;
-}
-
-.app-section {
-  height: 200px;
-  padding: 20px;
-  text-align: center;
-  background-color: #fafafa;
-  transform: translateY(100px);
-  p {
-    padding-top: 20px;
-    margin: 0;
-  }
-}
 
 .app-buttons {
+  text-align: center;
+  padding: 20px;
   button {
     height: 40px;
     width: 150px; 

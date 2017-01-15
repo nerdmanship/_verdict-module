@@ -1,1 +1,1 @@
-TweenMax.to(document.querySelectorAll("[data-apps]"), 1, { y: 0, autoAlpha: 1, delay: 2.5});
+TweenMax.staggerFromTo(document.querySelectorAll("[data-buttons]"), 1, { y: 100, autoAlpha: 0}, { y: 0, autoAlpha: 1, delay: 2.5, ease: Back.easeOut}, 0.1);
