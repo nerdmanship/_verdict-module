@@ -8,18 +8,15 @@ body {
   background-color: #fdd;
 }
 
-.svg-position {
-  position: relative;
-  width: 2512px;
-  height: 2055px; 
-  margin: 0 auto;
-}
 
 
 #verdict-module {
-  position: relative;
-  width: 2512px;
-  height: 2055px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1600px;
+  overflow: hidden;
 }
 
 #fallback {
