@@ -465,10 +465,10 @@ template {
     text-align: center;
     opacity: 0; }
   .app-buttons .appStore {
-    background: url(/images/appstore.svg) no-repeat;
+    background: url(../images/appstore.svg) no-repeat;
     margin-right: 10px; }
   .app-buttons .googlePlay {
-    background: url(/images/googleplay.png) no-repeat; }
+    background: url(../images/googleplay.png) no-repeat; }
 
 .no-js .app-buttons button {
   opacity: 1; }
