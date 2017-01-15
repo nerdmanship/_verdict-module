@@ -4,6 +4,7 @@ body {
 
 #header {
   height: 600px;
+  width: 100%;
   overflow: hidden;
   background-color: #fdd;
 }
@@ -11,7 +12,7 @@ body {
 
 
 #verdict-module {
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
