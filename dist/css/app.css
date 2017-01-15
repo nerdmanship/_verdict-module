@@ -450,24 +450,28 @@ template {
   #header {
     height: 450px; } }
 
-.app-buttons {
+.download-section {
+  width: 100%;
+  padding: 30px 0px; }
+
+.button-wrapper {
   text-align: center;
-  padding: 50px 0px;
+  padding: 30px 0px;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
   width: 314px;
   margin: 0 auto; }
-  .app-buttons .store-btn {
+  .button-wrapper .store-btn {
     width: 152px;
     height: 45px;
     display: inline-block;
     text-indent: -9999px;
     text-align: center;
     opacity: 0; }
-  .app-buttons .appStore {
+  .button-wrapper .appStore {
     background: url(../images/appstore.svg) no-repeat;
     margin-right: 10px; }
-  .app-buttons .googlePlay {
+  .button-wrapper .googlePlay {
     background: url(../images/googleplay.png) no-repeat; }
 
 .no-js .app-buttons button {
