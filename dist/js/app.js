@@ -67,10 +67,9 @@ function verdict() {
       xp = view.querySelectorAll("[data-leader=xp]"),
       you = view.querySelector("[data-leader=you]"),
       player = view.querySelectorAll("[data-leader=player]"),
-      featuresContainer = view.querySelector("[data-features=container]"),
-      features = view.querySelector("[data-features=content]"),
-      bullets = view.querySelectorAll("[data-features=bullet]"),
-      bulletList = view.querySelector("[data-features=bulletList]"),
+      features = view.querySelectorAll("[data-features=feature]"),
+      panes = view.querySelectorAll("[data-features=pane]"),
+      featuresBg = view.querySelector("[data-features=bg]"),
       c = {},
       // Conor
   n = {},
@@ -94,9 +93,9 @@ function verdict() {
       heroPos = '500 700 1600 1600',
       interfacePos = '650 950 1150 1150',
       featuresPos = '1170 1400 100 100',
-      smallLogoPos = '400 400 1800 1800',
-      smallArenaPos = '-200 100 3000 2000',
-      smallHeroPos = '200 450 2000 2000',
+      smallLogoPos = '300 385 2000 2000',
+      smallArenaPos = '-980 -1200 4500 4500',
+      smallHeroPos = '-200 150 2800 2800',
       smallFeaturesPos = '1170 1400 100 100';
 
   // Timelines
@@ -205,12 +204,23 @@ function verdict() {
 
   // Sub-Level 1
   if (isScreenSmall) {
-    tl.cam.set(view, { attr: { viewBox: smallLogoPos } }).to(view, 1, { attr: { viewBox: smallArenaPos }, ease: Power4.easeInOut }, 6).to(view, 1, { attr: { viewBox: smallHeroPos }, ease: Power4.easeInOut }, 14.5).to(view, 1, { attr: { viewBox: smallFeaturesPos }, ease: Power4.easeInOut }, 26.5).set(view, { attr: { viewBox: smallLogoPos } }, 28);
+    tl.cam.set(view, { attr: { viewBox: smallLogoPos } }).to(view, 1, { attr: { viewBox: smallArenaPos }, ease: Power4.easeInOut }, 6).to(view, 1, { attr: { viewBox: smallHeroPos }, ease: Power4.easeInOut }, 14.5)
+    //.to(view, 1, { attr: {viewBox: smallFeaturesPos }, ease: Power4.easeInOut }, 26.5)
+    //.set(view, { attr: {viewBox: smallLogoPos } }, 28)
+    ;
+    tl.features.add("featuresIn").set(features[0], { y: 0 }).set(features[1], { y: 50 }).set(features[2], { y: 100 }).to(panes[2], 0, { scale: 3, transformOrigin: "center", autoAlpha: 1 }, 0).to(features, 0, { autoAlpha: 1, scale: 1.5, transformOrigin: "center", x: "-=30" }, 0).fromTo(panes[2], 1, { y: 500 }, { y: -430, ease: Power3.easeOut }, 0).staggerTo(features, 1, { y: "-=500", autoAlpha: 1, ease: Back.easeOut }, 0.1, 0.4).staggerTo(features, 0.7, { scale: 0, y: "-=50", transformOrigin: "center top", ease: Back.easeIn }, 0.1, 4.2);
   } else {
-    tl.cam.set(view, { attr: { viewBox: logoPos } }).to(view, 3, { attr: { viewBox: arenaPos }, ease: Power3.easeInOut }, 4).to(viewRotation, 3, { rotation: -1, transformOrigin: "center", ease: Power3.easeInOut }, 4).to(view, 2.7, { attr: { viewBox: fightPos }, ease: Back.easeInOut }, 7).to(viewRotation, 2.7, { rotation: 2, transformOrigin: "center", ease: Back.easeInOut }, 7).to(view, 1.3, { attr: { viewBox: clockPos }, ease: Power3.easeInOut }, 9.7).to(viewRotation, 1.3, { rotation: 0, transformOrigin: "center", ease: Power3.easeInOut }, 9.7).to(view, 2.5, { attr: { viewBox: followPos }, ease: Power1.easeInOut }, 11).to(viewRotation, 2.5, { rotation: 1, transformOrigin: "center", ease: Power1.easeInOut }, 11).to(view, 2.5, { attr: { viewBox: heroPos }, ease: Power4.easeInOut }, 13.5).to(viewRotation, 2.5, { rotation: 0, transformOrigin: "center", ease: Power4.easeInOut }, 13.5).to(view, 1, { attr: { viewBox: interfacePos }, ease: Back.easeOut }, 18.5).to(viewRotation, 1, { rotation: 3, transformOrigin: "center", ease: Back.easeOut }, 18.5)
+    tl.cam.set(view, { attr: { viewBox: logoPos } }).to(view, 3, { attr: { viewBox: arenaPos }, ease: Power3.easeInOut }, 4).to(viewRotation, 3, { rotation: -1, transformOrigin: "center", ease: Power3.easeInOut }, 4).to(view, 2.7, { attr: { viewBox: fightPos }, ease: Back.easeInOut }, 7).to(viewRotation, 2.7, { rotation: 2, transformOrigin: "center", ease: Back.easeInOut }, 7).to(view, 1.3, { attr: { viewBox: clockPos }, ease: Power3.easeInOut }, 9.7).to(viewRotation, 1.3, { rotation: 0, transformOrigin: "center", ease: Power3.easeInOut }, 9.7).to(view, 2.5, { attr: { viewBox: followPos }, ease: Power1.easeInOut }, 11).to(viewRotation, 2.5, { rotation: 1, transformOrigin: "center", ease: Power1.easeInOut }, 11).to(view, 2.5, { attr: { viewBox: heroPos }, ease: Power4.easeInOut }, 13.5).to(viewRotation, 2.5, { rotation: 0, transformOrigin: "center", ease: Power4.easeInOut }, 13.5).to(view, 1, { attr: { viewBox: interfacePos }, ease: Back.easeOut }, 18.5).to(viewRotation, 1, { rotation: 3, transformOrigin: "center", ease: Back.easeOut }, 18.5).to(viewRotation, 1, { rotation: 0, transformOrigin: "center", ease: Power4.easeInOut }, 26)
 
     // zoom in to white and fade out everything
-    .to(view, 2, { attr: { viewBox: featuresPos }, ease: Power4.easeInOut }, 25.5).to(viewRotation, 2, { rotation: 0, transformOrigin: "center", ease: Power4.easeInOut }, 25.5).set(view, { attr: { viewBox: logoPos }, ease: Power4.easeInOut }, 28);
+    //.to(view, 2, { attr: {viewBox: featuresPos }, ease: Power4.easeInOut }, 25.5)
+    //.to(viewRotation, 2, { rotation: 0, transformOrigin: "center", ease: Power4.easeInOut }, 25.5)
+    //.set(view, { attr: {viewBox: logoPos }, ease: Power4.easeInOut }, 28)
+    ;
+
+    tl.features.add("featuresIn").set(features[0], { y: -300 }).set(features[1], { y: -265 }).set(features[2], { y: -230 })
+    //.to(featuresBg, 1, { autoAlpha: 1, ease: Power4.easeOut }, 0.5)
+    .staggerFromTo(panes, 1, { y: 500, rotation: 50, autoAlpha: 0 }, { y: -450, autoAlpha: 1, rotation: 0, ease: Back.easeOut }, 0.1, 0).staggerTo(features, 1, { y: "-=160", autoAlpha: 1, ease: Back.easeOut }, 0.1, 0.4).staggerTo(features, 0.5, { scale: 1.1, transformOrigin: "center", ease: SlowMo.ease.config(0.1, 0.1, true) }, 0.3, 2).staggerTo(features, 0.7, { scale: 0, y: "-=50", transformOrigin: "center top", autoAlpha: 0, ease: Back.easeIn }, -0.1, 4.2).staggerTo(panes, 1, { scale: 2, rotation: 10, transformOrigin: "center", ease: Back.easeIn }, 0.1, 4);
   }
 
   tl.title.add("title").add(tl.logo.play(), "title").add(tl.tagline.play(), "title =+1.5");
@@ -251,8 +261,6 @@ function verdict() {
   tl.score.set(scoreContainer, { autoAlpha: 1, scale: 0, transformOrigin: "center" }).to(scoreContainer, 0.3, { scale: 1 }).add("redTap", 1.5).to(scoreRedActive, 0.3, { autoAlpha: 1 }, "redTap").fromTo(scoreRedOverlay, 0.3, { scale: 0, autoAlpha: 0, y: 150, transformOrigin: "center" }, { scale: 1, autoAlpha: 1, y: 0 }, "redTap =+0.1").add("blueTap", 3).to(scoreBlueActive, 0.3, { autoAlpha: 1 }, "blueTap").fromTo(scoreBlueOverlay, 0.3, { scale: 0, autoAlpha: 0, y: 100, transformOrigin: "center" }, { scale: 1, autoAlpha: 1, y: 0 }, "blueTap =+0.1");
 
   tl.leader.set(leader, { x: 240 }).set(leaderContainer, { autoAlpha: 1 }).set(you, { y: 275 }).set(player[0], { y: 235 }).set(player[1], { y: 195 }).set(player[2], { y: 155 }).set(xp[0], { x: -40 }).set(xp[1], { x: 20 }).set(xp[2], { x: -40 }).to(leader, 0.3, { x: 0 }).staggerFromTo(xp, 2.5, { scale: 0, autoAlpha: 1, transformOrigin: "center", ease: Back.easeOut }, { scale: 5, autoAlpha: 0 }, -0.3, 0.5).staggerFromTo(xp, 2.5, { y: 70, ease: Back.easeOut }, { y: 40 }, 0.2, 0.5).to(you, 0.7, { y: 153, ease: Back.easeInOut }, 1).staggerTo(player, 0.3, { y: "+=40", ease: Power3.easeOut }, 0.1, 1.2);
-
-  tl.features.set(features, { x: 240 }).set(bullets[0], { y: 1200 }).set(bullets[1], { y: 1250 }).set(bullets[2], { y: 1300 }).to([featuresContainer, bulletList], 0, { autoAlpha: 1 }).to(features, 0.3, { x: 0 }).set([cage, hero, logoGradient, logoShadow, logo, tagline], { autoAlpha: 0 }, 1).staggerFrom(bullets, 1, { x: 3000, ease: Power4.easeInOut }, 0.7, 1).staggerTo(bullets, 1, { x: 0, ease: Power4.easeInOut }, 0.3, 5);
 
   // Fighters
 
@@ -419,7 +427,7 @@ function verdict() {
   tl.fighters.add(tl.fighting.play()).add(tl.walking.play(), "fightOver");
 
   setStartingValues();
-  tlMain.play();
+  tlMain.play().seek(14);
 
   /*######################################################################################################################################################################*/
 }

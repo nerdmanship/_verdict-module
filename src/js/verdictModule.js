@@ -64,10 +64,9 @@ function verdict() {
     xp = view.querySelectorAll("[data-leader=xp]"),
     you = view.querySelector("[data-leader=you]"),
     player = view.querySelectorAll("[data-leader=player]"),
-    featuresContainer = view.querySelector("[data-features=container]"),
-    features = view.querySelector("[data-features=content]"),
-    bullets = view.querySelectorAll("[data-features=bullet]"),
-    bulletList = view.querySelector("[data-features=bulletList]"),
+    features = view.querySelectorAll("[data-features=feature]"),
+    panes = view.querySelectorAll("[data-features=pane]"),
+    featuresBg = view.querySelector("[data-features=bg]"),
     c = {}, // Conor
     n = {}, // Nate
     bodyElems = ["body","FootFront","FootBack","KneeFront","KneeBack","LegFront","LegBack","HipFront","HipBack","SpineFront","SpineBack","ShoulderFront","ShoulderBack","ElbowFront","ElbowBack","WristFront","WristBack","Neck","Head", "fingers", "noFingers"];
@@ -86,9 +85,9 @@ function verdict() {
     interfacePos = '650 950 1150 1150',
     featuresPos = '1170 1400 100 100',
 
-    smallLogoPos = '400 400 1800 1800',
-    smallArenaPos = '-200 100 3000 2000',
-    smallHeroPos = '200 450 2000 2000',
+    smallLogoPos = '300 385 2000 2000',
+    smallArenaPos = '-980 -1200 4500 4500',
+    smallHeroPos = '-200 150 2800 2800',
     smallFeaturesPos = '1170 1400 100 100'
     ;
 
@@ -206,9 +205,24 @@ function verdict() {
       .set(view, { attr: {viewBox: smallLogoPos } } )
       .to(view, 1, { attr: {viewBox: smallArenaPos }, ease: Power4.easeInOut }, 6)
       .to(view, 1, { attr: {viewBox: smallHeroPos }, ease: Power4.easeInOut }, 14.5)
-      .to(view, 1, { attr: {viewBox: smallFeaturesPos }, ease: Power4.easeInOut }, 26.5)
-      .set(view, { attr: {viewBox: smallLogoPos } }, 28)
+      //.to(view, 1, { attr: {viewBox: smallFeaturesPos }, ease: Power4.easeInOut }, 26.5)
+      //.set(view, { attr: {viewBox: smallLogoPos } }, 28)
       ;
+    tl.features
+      .add("featuresIn")
+      .set(features[0], { y: 0 })
+      .set(features[1], { y: 50 })
+      .set(features[2], { y: 100 })
+      .to(panes[2], 0, { scale: 3, transformOrigin: "center", autoAlpha: 1 }, 0)
+      .to(features, 0, { autoAlpha: 1, scale: 1.5, transformOrigin: "center", x: "-=30" }, 0 )
+
+      .fromTo(panes[2], 1, { y: 500 }, { y: -430, ease: Power3.easeOut }, 0)
+      .staggerTo(features, 1, { y: "-=500", autoAlpha: 1, ease: Back.easeOut }, 0.1, 0.4)
+      .staggerTo(features, 0.7, { scale: 0, y: "-=50", transformOrigin: "center top", ease: Back.easeIn }, 0.1, 4.2)
+
+      ;
+
+
   } else {
     tl.cam
       .set(view, { attr: {viewBox: logoPos } })
@@ -224,11 +238,25 @@ function verdict() {
       .to(viewRotation, 2.5, { rotation: 0, transformOrigin: "center", ease: Power4.easeInOut }, 13.5)
       .to(view, 1, { attr: {viewBox: interfacePos }, ease: Back.easeOut }, 18.5)
       .to(viewRotation, 1, { rotation: 3, transformOrigin: "center", ease: Back.easeOut }, 18.5)
+      .to(viewRotation, 1, { rotation: 0, transformOrigin: "center", ease: Power4.easeInOut }, 26)
       
       // zoom in to white and fade out everything
-      .to(view, 2, { attr: {viewBox: featuresPos }, ease: Power4.easeInOut }, 25.5)
-      .to(viewRotation, 2, { rotation: 0, transformOrigin: "center", ease: Power4.easeInOut }, 25.5)
-      .set(view, { attr: {viewBox: logoPos }, ease: Power4.easeInOut }, 28)
+      //.to(view, 2, { attr: {viewBox: featuresPos }, ease: Power4.easeInOut }, 25.5)
+      //.to(viewRotation, 2, { rotation: 0, transformOrigin: "center", ease: Power4.easeInOut }, 25.5)
+      //.set(view, { attr: {viewBox: logoPos }, ease: Power4.easeInOut }, 28)
+      ;
+
+    tl.features
+      .add("featuresIn")
+      .set(features[0], { y: -300 })
+      .set(features[1], { y: -265 })
+      .set(features[2], { y: -230 })
+      //.to(featuresBg, 1, { autoAlpha: 1, ease: Power4.easeOut }, 0.5)
+      .staggerFromTo(panes, 1, { y: 500, rotation: 50, autoAlpha: 0 }, { y: -450, autoAlpha: 1, rotation: 0, ease: Back.easeOut }, 0.1, 0)
+      .staggerTo(features, 1, { y: "-=160", autoAlpha: 1, ease: Back.easeOut }, 0.1, 0.4)
+      .staggerTo(features, 0.5, { scale: 1.1, transformOrigin: "center", ease: SlowMo.ease.config(0.1, 0.1, true) }, 0.3, 2)
+      .staggerTo(features, 0.7, { scale: 0, y: "-=50", transformOrigin: "center top", autoAlpha: 0, ease: Back.easeIn }, -0.1, 4.2)
+      .staggerTo(panes, 1, { scale: 2, rotation: 10, transformOrigin: "center", ease: Back.easeIn }, 0.1, 4)
       ;
   }
 
@@ -425,18 +453,6 @@ function verdict() {
     .staggerTo(player, 0.3, { y: "+=40", ease: Power3.easeOut }, 0.1, 1.2)
     ;
 
-  tl.features
-    .set(features, { x: 240 })
-    .set(bullets[0], { y: 1200 })
-    .set(bullets[1], { y: 1250 })
-    .set(bullets[2], { y: 1300 })
-    .to([featuresContainer, bulletList], 0, { autoAlpha: 1 })
-
-    .to(features, 0.3, { x: 0 })
-    .set([cage, hero, logoGradient, logoShadow, logo, tagline], { autoAlpha: 0 }, 1)
-    .staggerFrom(bullets, 1, { x: 3000, ease: Power4.easeInOut }, 0.7, 1)
-    .staggerTo(bullets, 1, { x: 0, ease: Power4.easeInOut }, 0.3, 5)
-    ;
 
   // Fighters
 
@@ -1255,8 +1271,7 @@ function verdict() {
 
 
   setStartingValues();
-  tlMain.play();
-
+  tlMain.play().seek(14);
 
 /*######################################################################################################################################################################*/
 

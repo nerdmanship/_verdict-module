@@ -415,6 +415,9 @@ template {
 [hidden] {
   display: none; }
 
+body {
+  background-color: #F5F8FA; }
+
 #header {
   height: 600px;
   width: 100%;

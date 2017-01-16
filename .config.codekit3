@@ -1420,6 +1420,14 @@
 		"oF": 1,
 		"oS": 0
 		},
+	"\/src\/jade\/newFeatures.jade": {
+		"cOD": 1,
+		"ft": 512,
+		"oA": 0,
+		"oAP": "\/dist\/jade\/newFeatures.html",
+		"oF": 0,
+		"oS": 0
+		},
 	"\/src\/jade\/scene.jade": {
 		"cOD": 1,
 		"ft": 512,
@@ -1555,7 +1563,7 @@
 	"displayValue": "_verdict-module",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "brackets_teal",
-	"lastBuiltDate": 506191335
+	"lastBuiltDate": 506247774
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
