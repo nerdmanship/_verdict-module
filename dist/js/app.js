@@ -4,7 +4,7 @@ var techNeeded = Modernizr.svg && Modernizr.cssanimations && Modernizr.csstransf
 var isBrowserOutdated = false;
 var isScreenSmall = false;
 
-if (window.innerWidth < 640) {
+if (window.innerWidth < 640 || Modernizr.touch) {
   isScreenSmall = true;
 }
 if (!techNeeded) {
@@ -99,7 +99,7 @@ function verdict() {
       smallFeaturesPos = '1170 1400 100 100';
 
   // Timelines
-  var tlMain = new TimelineMax({ paused: true, repeat: -1 }),
+  var tlMain = new TimelineMax({ paused: true, repeat: -1, repeatDelay: 0.5 }),
       tl = {},
       tls = ["cam", "title", "arena", "hero", "logo", "tagline", "cage", "countdown", "endOfRound", "left", "right", "interface", "notification", "score", "leader", "features", "fighters", "fighting", "walking", "walkingNate", "walkingConor"],
       tlC = {},
@@ -204,11 +204,11 @@ function verdict() {
 
   // Sub-Level 1
   if (isScreenSmall) {
-    tl.cam.set(view, { attr: { viewBox: smallLogoPos } }).to(view, 1, { attr: { viewBox: smallArenaPos }, ease: Power4.easeInOut }, 6).to(view, 1, { attr: { viewBox: smallHeroPos }, ease: Power4.easeInOut }, 14.5)
+    tl.cam.set(view, { attr: { viewBox: smallLogoPos } }).to(view, 1, { attr: { viewBox: smallArenaPos }, ease: Power4.easeInOut }, 4.7).to(view, 1, { attr: { viewBox: smallHeroPos }, ease: Power4.easeInOut }, 14.5)
     //.to(view, 1, { attr: {viewBox: smallFeaturesPos }, ease: Power4.easeInOut }, 26.5)
     //.set(view, { attr: {viewBox: smallLogoPos } }, 28)
     ;
-    tl.features.add("featuresIn").set(features[0], { y: 0 }).set(features[1], { y: 50 }).set(features[2], { y: 100 }).to(panes[2], 0, { scale: 3, transformOrigin: "center", autoAlpha: 1 }, 0).to(features, 0, { autoAlpha: 1, scale: 1.5, transformOrigin: "center", x: "-=30" }, 0).fromTo(panes[2], 1, { y: 500 }, { y: -430, ease: Power3.easeOut }, 0).staggerTo(features, 1, { y: "-=500", autoAlpha: 1, ease: Back.easeOut }, 0.1, 0.4).staggerTo(features, 0.7, { scale: 0, y: "-=50", transformOrigin: "center top", ease: Back.easeIn }, 0.1, 4.2);
+    tl.features.add("featuresIn").set(features[0], { y: 50 }).set(features[1], { y: 110 }).set(features[2], { y: 170 }).to(panes[2], 0, { scale: 3, transformOrigin: "center", autoAlpha: 1 }, 0).to(features, 0, { autoAlpha: 1, scale: 1.5, transformOrigin: "center", x: "-=30" }, 0).fromTo(panes[2], 1, { y: 500 }, { y: -430, ease: Power3.easeOut }, 0).staggerTo(features, 1, { y: "-=500", autoAlpha: 1, ease: Back.easeOut }, 0.1, 0.6).staggerTo(features, 0.7, { scale: 0, y: "-=50", transformOrigin: "center top", autoAlpha: 0, ease: Back.easeIn }, -0.1, 4.2);
   } else {
     tl.cam.set(view, { attr: { viewBox: logoPos } }).to(view, 3, { attr: { viewBox: arenaPos }, ease: Power3.easeInOut }, 4).to(viewRotation, 3, { rotation: -1, transformOrigin: "center", ease: Power3.easeInOut }, 4).to(view, 2.7, { attr: { viewBox: fightPos }, ease: Back.easeInOut }, 7).to(viewRotation, 2.7, { rotation: 2, transformOrigin: "center", ease: Back.easeInOut }, 7).to(view, 1.3, { attr: { viewBox: clockPos }, ease: Power3.easeInOut }, 9.7).to(viewRotation, 1.3, { rotation: 0, transformOrigin: "center", ease: Power3.easeInOut }, 9.7).to(view, 2.5, { attr: { viewBox: followPos }, ease: Power1.easeInOut }, 11).to(viewRotation, 2.5, { rotation: 1, transformOrigin: "center", ease: Power1.easeInOut }, 11).to(view, 2.5, { attr: { viewBox: heroPos }, ease: Power4.easeInOut }, 13.5).to(viewRotation, 2.5, { rotation: 0, transformOrigin: "center", ease: Power4.easeInOut }, 13.5).to(view, 1, { attr: { viewBox: interfacePos }, ease: Back.easeOut }, 18.5).to(viewRotation, 1, { rotation: 3, transformOrigin: "center", ease: Back.easeOut }, 18.5).to(viewRotation, 1, { rotation: 0, transformOrigin: "center", ease: Power4.easeInOut }, 26)
 
@@ -427,7 +427,7 @@ function verdict() {
   tl.fighters.add(tl.fighting.play()).add(tl.walking.play(), "fightOver");
 
   setStartingValues();
-  tlMain.play().seek(14);
+  tlMain.play();
 
   /*######################################################################################################################################################################*/
 }

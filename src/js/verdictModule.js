@@ -2,7 +2,7 @@ var techNeeded = Modernizr.svg && Modernizr.cssanimations && Modernizr.csstransf
 var isBrowserOutdated = false;
 var isScreenSmall = false;
 
-if (window.innerWidth < 640 ) { isScreenSmall = true; }
+if (window.innerWidth < 640 || Modernizr.touch) { isScreenSmall = true; }
 if (!(techNeeded)) { isBrowserOutdated = true; }
 
 
@@ -92,7 +92,7 @@ function verdict() {
     ;
 
   // Timelines
-  var tlMain = new TimelineMax({ paused: true, repeat: -1 }),
+  var tlMain = new TimelineMax({ paused: true, repeat: -1, repeatDelay: 0.5 }),
     tl = {},
     tls = [ "cam", "title", "arena", "hero", "logo", "tagline", "cage", "countdown", "endOfRound", "left", "right", "interface", "notification", "score", "leader", "features", "fighters", "fighting", "walking", "walkingNate", "walkingConor" ],
     tlC = {},
@@ -203,22 +203,22 @@ function verdict() {
   if (isScreenSmall) {
     tl.cam
       .set(view, { attr: {viewBox: smallLogoPos } } )
-      .to(view, 1, { attr: {viewBox: smallArenaPos }, ease: Power4.easeInOut }, 6)
+      .to(view, 1, { attr: {viewBox: smallArenaPos }, ease: Power4.easeInOut }, 4.7)
       .to(view, 1, { attr: {viewBox: smallHeroPos }, ease: Power4.easeInOut }, 14.5)
       //.to(view, 1, { attr: {viewBox: smallFeaturesPos }, ease: Power4.easeInOut }, 26.5)
       //.set(view, { attr: {viewBox: smallLogoPos } }, 28)
       ;
     tl.features
       .add("featuresIn")
-      .set(features[0], { y: 0 })
-      .set(features[1], { y: 50 })
-      .set(features[2], { y: 100 })
+      .set(features[0], { y: 50 })
+      .set(features[1], { y: 110 })
+      .set(features[2], { y: 170 })
       .to(panes[2], 0, { scale: 3, transformOrigin: "center", autoAlpha: 1 }, 0)
       .to(features, 0, { autoAlpha: 1, scale: 1.5, transformOrigin: "center", x: "-=30" }, 0 )
 
       .fromTo(panes[2], 1, { y: 500 }, { y: -430, ease: Power3.easeOut }, 0)
-      .staggerTo(features, 1, { y: "-=500", autoAlpha: 1, ease: Back.easeOut }, 0.1, 0.4)
-      .staggerTo(features, 0.7, { scale: 0, y: "-=50", transformOrigin: "center top", ease: Back.easeIn }, 0.1, 4.2)
+      .staggerTo(features, 1, { y: "-=500", autoAlpha: 1, ease: Back.easeOut }, 0.1, 0.6)
+      .staggerTo(features, 0.7, { scale: 0, y: "-=50", transformOrigin: "center top", autoAlpha: 0, ease: Back.easeIn }, -0.1, 4.2)
 
       ;
 
@@ -1271,7 +1271,7 @@ function verdict() {
 
 
   setStartingValues();
-  tlMain.play().seek(14);
+  tlMain.play();
 
 /*######################################################################################################################################################################*/
 
