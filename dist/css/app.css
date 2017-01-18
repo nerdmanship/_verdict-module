@@ -418,15 +418,19 @@ template {
 body {
   background-color: #F5F8FA; }
 
-#header {
+.v-header {
+  position: relative;
   height: 600px;
   width: 100%;
   overflow: hidden; }
 
-.touch #header {
-  height: 400px; }
+.touch .v-header {
+  height: 400px;
+  max-width: 800px;
+  margin: 0 auto; }
 
-#verdict-module {
+.v-svg,
+.v-fallback {
   position: relative;
   top: 50%;
   left: 50%;
@@ -434,49 +438,40 @@ body {
           transform: translate(-50%, -50%);
   width: 1600px;
   overflow: hidden; }
+  .v-svg .v-joint, .v-svg .v-forceBox,
+  .v-fallback .v-joint,
+  .v-fallback .v-forceBox {
+    opacity: 0; }
 
-#fallback {
-  position: relative;
-  height: 100%;
-  overflow: hidden;
-  display: none; }
+.v-fallback {
+  width: auto;
+  height: 100%; }
 
-.no-js #fallback {
-  display: block; }
-
-.hidden {
+.v-hidden {
   opacity: 0; }
 
-#joint, #forceBox {
-  opacity: 0; }
-
-@media (max-width: 600px) {
-  #header {
-    height: 450px; } }
-
-.download-section {
+.v-download {
   width: 100%;
   padding: 30px 0px; }
-
-.button-wrapper {
-  text-align: center;
-  padding: 30px 0px;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-  width: 314px;
-  margin: 0 auto; }
-  .button-wrapper .store-btn {
-    width: 152px;
-    height: 45px;
-    display: inline-block;
-    text-indent: -9999px;
+  .v-download .v-button-wrapper {
     text-align: center;
-    opacity: 0; }
-  .button-wrapper .appStore {
-    background: url(../images/appstore.svg) no-repeat;
-    margin-right: 10px; }
-  .button-wrapper .googlePlay {
-    background: url(../images/googleplay.png) no-repeat; }
+    padding: 30px 0px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    width: 314px;
+    margin: 0 auto; }
+    .v-download .v-button-wrapper .v-store-btn {
+      width: 152px;
+      height: 45px;
+      display: inline-block;
+      text-indent: -9999px;
+      text-align: center;
+      opacity: 0; }
+    .v-download .v-button-wrapper .v-appStore {
+      background: url(../images/appstore.svg) no-repeat;
+      margin-right: 10px; }
+    .v-download .v-button-wrapper .v-googlePlay {
+      background: url(../images/googleplay.png) no-repeat; }
 
-.no-js .app-buttons button {
+.no-js .v-button-wrapper .v-store-btn {
   opacity: 1; }

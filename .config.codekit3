@@ -1423,9 +1423,9 @@
 	"\/src\/jade\/newFeatures.jade": {
 		"cOD": 1,
 		"ft": 512,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/dist\/jade\/newFeatures.html",
-		"oF": 0,
+		"oF": 1,
 		"oS": 0
 		},
 	"\/src\/jade\/scene.jade": {
@@ -1561,7 +1561,7 @@
 "projectAttributes": {
 	"creationDate": 503551669,
 	"displayValue": "_verdict-module",
-	"displayValueWasSetByUser": 0,
+	"displayValueWasSetByUser": 1,
 	"iconImageName": "brackets_teal",
 	"lastBuiltDate": 506311171
 	},
