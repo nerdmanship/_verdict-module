@@ -98,6 +98,13 @@ Search for the following strings in the correlating document:
 * GSAP DrawSVGplugin - Goes in end of \<body\> after GSAP TweenMax
 
 
+## Acknowledgements
+
+* A big thank you to Mandeep and Sanjay at Verdict who reached out about this project. Creds for their pioneering attitude towards innovative web tech.
+* So much gratitude to Jack, Carl and [the community](https://greensock.com/forums/forum/11-gsap/) at [Greensock](https://www.greensock.com). Not only do they provide the new standard for HTML5 animation, but they have tireless attitude towards helping me with any challenge that I may face during production.
+* Many thanks to [Sebastian Otarola](https://www.linkedin.com/in/sebastianotarola) and [Andreas Fabbe Andersson](https://www.linkedin.com/in/andreasfabbe) at DDB Nordic who provided support and feedback during development
+* Extra highfives to the products and services that make my workflow so easy: [Codekit](https://codekitapp.com/), [Codepen](http://codepen.io/), [Github](https://github.com/), [SVGO](https://jakearchibald.github.io/svgomg/), [html2jade](http://html2jade.org/) and every silly know-it-all at [Stackoverflow](http://stackoverflow.com/)
+
 ## License
 
 The code is available under the [MIT license](LICENSE.txt).

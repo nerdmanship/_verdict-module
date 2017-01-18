@@ -65,16 +65,16 @@ All code and assets is found in the [/dist](https://github.com/nerdmanship/_verd
 * It's also important to add the class ".no-js" to the html tag. It triggers a fallback if the user client doesn't allow javascript. Modernizr removes the tag if the user client does allow javascript.
 
 ### Javascript
-All custom code necessary to drive the header animation is bundled in the object verdictModule in app.js.
-The button animation is one line of code located after the verdictModule in app.js.
+* All custom code necessary to drive the header animation is bundled in the object verdictModule in app.js. The button animation is one line of code located after the verdictModule in app.js.
 
-Either put the /js folder in the root folder abnd link to app.js in the end of \<body\> after dependencies (see below),
-or insert complete verdictModule and button animation into any existing javascript document.
+* Either put the /js folder in the root folder abnd link to app.js in the end of \<body\> after dependencies (see below), or insert complete verdictModule and button animation into any existing javascript document.
 
-Run the animation by calling verdicModule.detect() and verdictModule.init() in that order. These calls are already in the app.js document.
+* Run the animation by calling verdicModule.detect() and verdictModule.init() in that order. These calls are already in the app.js document.
 
 ### CSS
-Put the /css folder in the root folder and link to stylesheet app.css in the head or insert the contents into any existing document. Mind the path references (see below).
+* Put the /css folder in the root folder and link to stylesheet app.css in the head or insert the contents into any existing document. Mind the path references (see below).
+
+* Lastly add the class .v-pale-blue to the body tag to match the page with the blue tint background of the animation
 
 ### Images
 There are three images necessary for the project:
@@ -97,6 +97,13 @@ Search for the following strings in the correlating document:
 * GSAP TweenMax - Goes in end of \<body\>
 * GSAP DrawSVGplugin - Goes in end of \<body\> after GSAP TweenMax
 
+
+## Acknowledgements
+
+* A big thank you to Mandeep and Sanjay at Verdict who reached out about this project. Creds for their pioneering attitude towards innovative web tech.
+* So much gratitude to Jack, Carl and [the community](https://greensock.com/forums/forum/11-gsap/) at [Greensock](https://www.greensock.com). Not only do they provide the new standard for HTML5 animation, but they have tireless attitude towards helping me with any challenge that I may face during production.
+* Many thanks to [Sebastian Otarola](https://www.linkedin.com/in/sebastianotarola) and [Andreas Fabbe Andersson](https://www.linkedin.com/in/andreasfabbe) at DDB Nordic who provided support and feedback during development
+* Extra highfives to the products and services that make my workflow so easy: [Codekit](https://codekitapp.com/), [Codepen](http://codepen.io/), [Github](https://github.com/), [SVGO](https://jakearchibald.github.io/svgomg/), [html2jade](http://html2jade.org/) and every silly know-it-all at [Stackoverflow](http://stackoverflow.com/)
 
 ## License
 

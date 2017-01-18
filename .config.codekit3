@@ -23,9 +23,9 @@
 		"ema": 1,
 		"eSQ": 1,
 		"ft": 4096,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/dist\/README.html",
-		"oF": 0,
+		"oF": 1,
 		"oFM": 0,
 		"oS": 0,
 		"pHT": 0,
@@ -1554,7 +1554,7 @@
 	"displayValue": "_verdict-module",
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "brackets_teal",
-	"lastBuiltDate": 506421796
+	"lastBuiltDate": 506426218
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
