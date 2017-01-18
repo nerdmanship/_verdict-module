@@ -8,13 +8,14 @@ body {
   position: relative;;
   height: 600px;
   width: 100%;
+  max-width: 1600px;
   overflow: hidden;
+  margin: 0 auto;
 }
 
 .touch .v-header {
     height: 400px;
     max-width: 800px;
-    margin: 0 auto;
   }
 
 .v-svg,
@@ -36,8 +37,6 @@ body {
 .v-hidden {
   opacity: 0;
 }
-
-
 
 .v-download {
   width: 100%;

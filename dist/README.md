@@ -19,10 +19,11 @@ Copy/paste the header and download section from index.html into your html docume
 ![HTML Code](https://dl.dropboxusercontent.com/s/h2ixi2kefqr51wy/Screenshot%202017-01-18%2011.47.40.png)
 
 ### Javascript
-All custom code necessary to drive the header animation is bundled in the object verdictModule in app.js
-The button animation is one line of code located after the verdictModule in app.js
+All custom code necessary to drive the header animation is bundled in the object verdictModule in app.js.
+The button animation is one line of code located after the verdictModule in app.js.
 
-Either link to app.js in the end of \<body\> after dependencies (see below) or insert complete verdictModule into any existing javascript document
+Either put the /js folder in the root folder abnd link to app.js in the end of \<body\> after dependencies (see below),
+or insert complete verdictModule and button animation into any existing javascript document.
 
 Run the animation by calling verdicModule.detect() and verdictModule.init() in that order. These calls are already in the app.js document.
 

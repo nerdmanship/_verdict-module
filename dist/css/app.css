@@ -422,12 +422,13 @@ body {
   position: relative;
   height: 600px;
   width: 100%;
-  overflow: hidden; }
+  max-width: 1600px;
+  overflow: hidden;
+  margin: 0 auto; }
 
 .touch .v-header {
   height: 400px;
-  max-width: 800px;
-  margin: 0 auto; }
+  max-width: 800px; }
 
 .v-svg,
 .v-fallback {
