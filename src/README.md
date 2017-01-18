@@ -47,8 +47,11 @@ Follow these steps to implement the animation into an existing web page.
 All code and assets is found in the [/dist](https://github.com/nerdmanship/_verdict-module/tree/master/dist) folder
 
 ### HTML
-Copy/paste the header and download section from index.html into your html document (see comments in the html)
+* Copy/paste the header and download section from index.html into your html document (see comments in the html)
+
 ![HTML Code](https://dl.dropboxusercontent.com/s/h2ixi2kefqr51wy/Screenshot%202017-01-18%2011.47.40.png)
+
+* It's also important to add the class ".no-js" to the html tag. It triggers a fallback if the user client doesn't allow javascript. Modernizr removes the tag if the user client does allow javascript.
 
 ### Javascript
 All custom code necessary to drive the header animation is bundled in the object verdictModule in app.js.
