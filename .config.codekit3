@@ -15,6 +15,24 @@
 		"oAP": "\/dist\/dist",
 		"oF": 0
 		},
+	"\/README.md": {
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"eLB": 0,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "\/dist\/README.html",
+		"oF": 0,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
 	"\/src\/assets\/bower.json": {
 		"ft": 524288,
 		"oA": 1,
@@ -28,7 +46,7 @@
 		"mi": 0,
 		"oA": 2,
 		"oAP": "\/dist\/js\/modernizr-2.8.3.min.js",
-		"oF": 2,
+		"oF": 3,
 		"sC": 2,
 		"tS": 1
 		},
@@ -1034,9 +1052,9 @@
 	"\/src\/assets\/GreenSock-ShockinglyGreen-js\/src\/minified\/TweenMax.min.js": {
 		"ft": 64,
 		"mi": 0,
-		"oA": 1,
-		"oAP": "\/dist\/assets\/GreenSock-ShockinglyGreen-js\/src\/minified\/TweenMax.min.js",
-		"oF": 1,
+		"oA": 2,
+		"oAP": "\/dist\/js\/TweenMax.js",
+		"oF": 3,
 		"sC": 2,
 		"tS": 1
 		},
@@ -1431,7 +1449,7 @@
 		"mi": 0,
 		"oA": 0,
 		"oAP": "\/dist\/js\/app.js",
-		"oF": 0,
+		"oF": 2,
 		"sC": 2,
 		"tS": 1
 		},
@@ -1450,15 +1468,6 @@
 		"oA": 1,
 		"oAP": "\/dist\/js\/controls.js",
 		"oF": 1,
-		"sC": 2,
-		"tS": 1
-		},
-	"\/src\/js\/TweenMax.js": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 0,
-		"oAP": "\/dist\/js\/TweenMax.js",
-		"oF": 0,
 		"sC": 2,
 		"tS": 1
 		},
@@ -1545,7 +1554,7 @@
 	"displayValue": "_verdict-module",
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "brackets_teal",
-	"lastBuiltDate": 506410306
+	"lastBuiltDate": 506421796
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

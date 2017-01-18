@@ -24,11 +24,22 @@ To us, web-animation is a tool for great user experience. There is much more to 
 
 ### Quick facts
 * **Total lenght:** 33 seconds
-* **File size of graphics and animation:** 80 kB gzipped
-* **Total file size including dependencies:** 200 kB gzipped
+* **File size of graphics and animation:** 71 KB (compressed and gzipped)
+* **Total file size including dependencies:** 117 KB (compressed and gzipped)
 * **Loading time:** Less than 0.5 seconds
 * **Time spent developing it:** ~100 hours
 * **Other benefits:** Exportable to GIF and video to be shared across social media. Animation is reusable and updateable. Any element and aspect can be made interactive.
+
+### File size breakdown
+* **index.html 62673 KB**  - markup including all inline graphics
+* **app.css 1321 KB**  - layout including Normalizr
+* **app.js 7992 KB**  - all custom javascript including all animation
+* **Tweenmax.js 36879 KB**  - dependency, javascript library for animation
+* **DrawSVGplugin.js 1727 KB**  - dependency, extra features for TweenMax
+* **Modernizr.js 6134 KB**  - dependency, feature detection, enables serving different code to different browsers
+* Total 116 726 KB
+
+[Read about gzipping your files](https://seesparkbox.com/foundry/gzip_is_really_good_at_like_compressing_repetitive_text_and_stuff)
 
 ## Want more web animation?
 
