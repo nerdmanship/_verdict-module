@@ -7,7 +7,7 @@
 		"uuidString": "AF97FB2F-30BB-4008-9CC4-65120023B770"
 		}
 	],
-"creatorBuild": "25479",
+"creatorBuild": "25504",
 "files": {
 	"\/dist": {
 		"ft": 65536,
@@ -1554,7 +1554,7 @@
 	"displayValue": "_verdict-module",
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "brackets_teal",
-	"lastBuiltDate": 506426218
+	"lastBuiltDate": 507442052
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
@@ -2202,6 +2202,10 @@
 			"active": 0,
 			"optionString": ""
 			},
+		"no-await-in-loop": {
+			"active": 0,
+			"optionString": ""
+			},
 		"no-bitwise": {
 			"active": 0,
 			"optionString": "{'allow': ['~'], 'int32Hint': true}"
@@ -2741,6 +2745,10 @@
 		"prefer-const": {
 			"active": 0,
 			"optionString": "{'destructuring': 'any', 'ignoreReadBeforeAssign': false}"
+			},
+		"prefer-destructuring": {
+			"active": 0,
+			"optionString": "{'array': true, 'object': true}, {'enforceForRenamedProperties': false}"
 			},
 		"prefer-numeric-literals": {
 			"active": 0,
